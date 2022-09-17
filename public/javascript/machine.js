@@ -32,8 +32,9 @@ class Machine extends Obj {
 
 	let className = connect + "\(" + leftClass + "\," + rightClass + "\)";
 
+	// console.log(leftClass);
 	this.element = $(`
-		<div class="` + className + ` connector left-"` + leftClass + `>
+		<div class="` + className + ` connector left-` + leftClass + `">
 			<div class="connector-wrapper">
 				<div class="connector-left">
 					` + (leftobj.element).outerHTML + `
