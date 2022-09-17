@@ -112,7 +112,9 @@ var levels = [
         {
             givens:
             [
-                ['p', [['p', 'imp', ['q', 'and', 'r']],'or',[['r', 'and', 'q'], 'imp', ['p', 'and', 'r']]], ['q', 'imp', ['r', 'imp', 's']]]
+                'p', 
+                [['p', 'imp', ['q', 'and', 'r']],'or',[['r', 'imp', 'q'], 'and', ['p', 'imp', 'r']]],
+                ['q', 'imp', ['r', 'imp', 's']]
             ],
             goals:
             [
