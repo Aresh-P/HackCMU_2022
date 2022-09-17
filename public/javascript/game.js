@@ -270,6 +270,7 @@ function addClassesAndListeners() {
         let classString = $(this).attr('class');
         if (classString.substr(0, 3) === 'imp' && ($(this).hasClass('adddrop') || !$(this).children('.connector-wrapper').children('.connector-left').hasClass('inactive-constructor'))) {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
+            $(this).removeClass('adddrop');
     
 
             $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
@@ -299,6 +300,7 @@ function addClassesAndListeners() {
                     let bigwidth = $(event.target.parentElement).width();
                     let offset = getOffset(event.target);
                     $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth - 10, opacity: 0}).addClass('draggable').animate({opacity: 1, left: offset.left + bigwidth + 10}, 600));
+                    addClassesAndListeners();
                 }
             });
         } else if (classString.substr(0, 3) === 'and' && !$(this).hasClass('listener')) {
