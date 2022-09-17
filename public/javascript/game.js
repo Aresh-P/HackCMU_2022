@@ -280,32 +280,32 @@ function addClassesAndListeners() {
             let leftindex = classString.lastIndexOf('left-');
             let spaceindex = classString.indexOf(' ', leftindex);
             let acceptstr = '.' + classString.substr(leftindex + 5, spaceindex - (leftindex + 5));
-            console.log(acceptstr);
             interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
                 accept: acceptstr,
                 overlap: 0.75,
     
                 ondrop: function (event) {
-                    console.log("successful");
                     // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
     
                     // event.target.classList.remove('inactive-constructor');
                     $(event.target.parentElement).width();
                     let newx = $(event.relatedTarget).attr('data-x') - $(event.target).width() - 20;
                     let newy = $(event.relatedTarget).attr('data-y') + 5;
-                    event.relatedTarget.style.transform = 'translate(' + newx + 'px, ' + newy + 'px)'
-                    $(event.relatedTarget).attr('data-x', newx);
-                    $(event.relatedTarget).attr('data-y', newy);
+                    $(event.relatedTarget).fadeOut(500, function() {
+                        event.relatedTarget.style.transform = 'translate(' + newx + 'px, ' + newy + 'px)'
+                        $(event.relatedTarget).attr('data-x', newx);
+                        $(event.relatedTarget).attr('data-y', newy);
+                        $(event.relatedTarget).show();
+                    });
                     
                     let bigwidth = $(event.target.parentElement).width();
                     let offset = getOffset(event.target);
-                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth + 10}).addClass('draggable'));
+                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth - 10, opacity: 0}).addClass('draggable').animate({opacity: 1, left: offset.left + bigwidth + 10}, 600));
                 }
             });
         } else if (classString.substr(0, 3) === 'and' && !$(this).hasClass('listener')) {
             let obj = this;
             $(obj).addClass('listener');
-            console.log('added to and');
 
 
 
@@ -354,52 +354,45 @@ function addClassesAndListeners() {
                 if (diffX < delta && diffY < delta) {
                     // Click!
                     // console.log(obj);
-                    // let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
-                    let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
-                    let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
-                    let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
-                    $(obj).remove();
 
-                    console.log(placeholder);
-                    console.log(placeholder2);
-    
-                    let string = `
-                        <div class="givens-wrapper">
-                        <div class="givens-title-wrapper">
-                            <h3 class="givens-title">
-                                Givens:
-                            </h3>
-                        </div>
-                        <div class="givens-playground">
-                    `;
-                    
-                    for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
-                        let newobj = $($('.givens-playground')[environment].children[i].outerHTML);
-                        if (newobj.attr('class').substr(0, 3) === 'imp') {
-                            newobj.addClass('adddrop');
+                    $(obj).animate({left: 10}, 550, () => $(obj).animate({left: 30}, 400, () => {
+                        let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
+                        let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                        let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                        // $(obj).fadeOut(400, function() {
+                        //     $(obj).remove();
+                        // });
+                        $(obj).remove();
+
+                        let string = `
+                            <div class="givens-wrapper">
+                                <div class="givens-playground">
+                        `;
+                        
+                        for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
+                            let newobj = $($('.givens-playground')[environment].children[i].outerHTML);
+                            if (newobj.attr('class').substr(0, 3) === 'imp') {
+                                newobj.addClass('adddrop');
+                            }
+                            string += newobj[0].outerHTML;
                         }
-                        string += newobj[0].outerHTML;
-                    }
-                    string += placeholder2.outerHTML + '</div></div>';
-                    string += `
-                    <div class="goals-wrapper">
-                    <div class="goals-title-wrapper">
-                        <h3 class="goals-title">
-                            Goals:
-                        </h3>
-                    </div>
-                    <div class="goals-playground">
-                    `;
-    
-                    for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
-                        string += $('.goals-playground')[environment].children[i].outerHTML;
-                    }
-    
-                    string += '</div></div>'
-    
-                    $('.givens-playground')[environment].appendChild(placeholder);
-                    $('#content').append('<div class="environment">' + string + '</div>');
-                    addClassesAndListeners();
+                        string += placeholder2.outerHTML + '</div></div>';
+                        string += `
+                        <div class="goals-wrapper">
+                            <div class="goals-playground">
+                        `;
+        
+                        for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
+                            string += $('.goals-playground')[environment].children[i].outerHTML;
+                        }
+        
+                        string += '</div></div>'
+        
+                        $('.givens-playground')[environment].appendChild(placeholder);
+                        let newenv = $('<div class="environment">' + string + '</div>').css({opacity: 0}).animate({opacity: 1}, 1000);
+                        $('#content').append(newenv);
+                        addClassesAndListeners();
+                    }));
                 }   
             });
         }
