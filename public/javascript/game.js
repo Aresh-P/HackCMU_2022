@@ -116,12 +116,40 @@ function dragging() {
                     for(var i=0; i<children.length; i++){
                         var child = children[i];
                         let compareClassString = $(child).attr("class");
-                        console.log(compareClassString);
+                        // console.log(compareClassString);
                         let compareSpaceIdx = compareClassString.indexOf(' ', 0);
                         let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
-                        console.log(compareConstructorStr);
+                        // console.log(compareConstructorStr);
                         if (compareConstructorStr === constructorStr) {
-                            console.log("YOU HAVE WON!")
+                            // console.log("YOU HAVE WON!");
+                            $(child).removeClass("inactive-goal");
+                            // check if environment done
+                            let done = true;
+                            for (var j=0; i<children.length; i++) {
+                                var childj = children[j];
+                                if ($(childj).hasClass("inactive-goal")) {
+                                    done = false;
+                                }
+                            }
+                            if (done) {
+                                // $(goals.parentElement).preventDefault();
+                                // goals.parentElement.disabled;
+                                // $(goals.parentElement).find("*").prop('disabled',true);
+                                let niceMessage = $(`
+                                    <div class="msg">
+                                        <h3>
+                                            Nice! You did it!
+                                        </h3>
+                                    </div>
+                                `)[0];
+                                $(givens).append(niceMessage);
+                                console.log(niceMessage);
+                                $(goals.parentElement).fadeOut(2000, function () {
+                                    this.remove();
+                                });
+                                
+                                goals.parentElement.classList.add("inactive-goal");
+                            }
                         }
                     }
                     // for (const obj in ($(goals).children(".goals-playground")[0])) {

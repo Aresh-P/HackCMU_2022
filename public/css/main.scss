@@ -311,6 +311,15 @@ p, h1, span, div {
     padding: 6px 2px 6px 2px !important;
 }
 
+.msg {
+    position: relative;
+    top: 50%;
+    left: 45%;
+    // margin-top: -50%;
+    // margin-left: -50%;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 
 .inactive-goal {
     filter: grayscale(1) !important;
