@@ -104,8 +104,7 @@ function dragMoveListener(event) {
             let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
             // console.log(compareConstructorStr);
             if (compareConstructorStr === constructorStr) {
-
-                document.addEventListener('mouseup', function() {
+                function finishGoal() {
                     if (event.rect.left > goalsLeft) {
                         // console.log("YOU HAVE WON!");
                         $(child).removeClass("inactive-goal");
@@ -147,7 +146,11 @@ function dragMoveListener(event) {
                             goals.parentElement.classList.add("inactive-goal");
                         }
                     }
-                });
+                }
+                
+
+                document.addEventListener('touchend', () => setTimeout(finishGoal, 0));
+                document.addEventListener('mouseup', finishGoal);
             }
         }
         // for (const obj in ($(goals).children(".goals-playground")[0])) {
@@ -266,7 +269,7 @@ function dragging() {
 }
 
 function addClassesAndListeners() {
-    $('.environment').css({height: (90 / $('.environment').length) + 'vh'});
+    $('.environment').css({height: (80 / $('.environment').length) + 'vh'});
 
     $('.givens-playground > *').each(function() {
         // this.addEventListener("dblclick", event => {

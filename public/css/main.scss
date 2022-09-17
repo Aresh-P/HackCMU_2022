@@ -76,16 +76,27 @@ p, h1, span, div {
     }
 }
 
-#content {
 
+.environment-added {
+    height: 60vh !important;
+}
+#content-titles {
+    #environment {
+        height: 10vh !important;
+        border: none;
+    }
+}
+
+#content, #content-titles {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 
     padding: 0;
     margin: 0;
 
-    .environment {
-        overflow: hidden;
+    .environment, .title-environment {
+        // overflow: hidden;
     
         display: flex;
         flex-direction: row;
@@ -110,6 +121,7 @@ p, h1, span, div {
                 text-align: left;
                 .givens-title {
                     user-select: none;
+                    margin: 0;
                 }
                 height: 10%;
             }
@@ -130,6 +142,7 @@ p, h1, span, div {
                 text-align:left;
                 .goals-title {
                     user-select: none;
+                    margin: 0;
                 }
                 height: 10%;
             }
@@ -154,6 +167,7 @@ p, h1, span, div {
 // }
 
 .atom {
+    position: relative;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
     display: inline-block;
     text-align: center;
@@ -209,6 +223,7 @@ p, h1, span, div {
 
 
 .connector {
+    position: relative;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: white;
     display: inline-block;
@@ -432,6 +447,8 @@ p, h1, span, div {
     filter: brightness(0.8);
 }
 
+
+
 .coming-soon-card {
     border: none;
     text-align: left !important;
@@ -452,11 +469,11 @@ p, h1, span, div {
         height: 100% !important;
     }
 
-    #logo-text-wrapper {
+    // #logo-text-wrapper {
         
-    }
+    // }
 
-    #logo-image-wrapper {
+    // #logo-image-wrapper {
 
-    }
+    // }
 }   

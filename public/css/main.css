@@ -99,14 +99,19 @@ p, h1, span, div {
   height: 60vh !important;
 }
 
-#content {
+#content-titles #environment {
+  height: 10vh !important;
+  border: none;
+}
+
+#content, #content-titles {
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
 }
-#content .environment {
-  overflow: hidden;
+#content .environment, #content .title-environment, #content-titles .environment, #content-titles .title-environment {
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -114,52 +119,55 @@ p, h1, span, div {
   height: 90vh;
   border-bottom: solid black 2.5px;
 }
-#content .environment .givens-wrapper {
+#content .environment .givens-wrapper, #content .title-environment .givens-wrapper, #content-titles .environment .givens-wrapper, #content-titles .title-environment .givens-wrapper {
   height: 100%;
   width: 70vw;
   border-right: solid black 2.5px;
   justify-content: center;
 }
-#content .environment .givens-wrapper .givens-title-wrapper {
+#content .environment .givens-wrapper .givens-title-wrapper, #content .title-environment .givens-wrapper .givens-title-wrapper, #content-titles .environment .givens-wrapper .givens-title-wrapper, #content-titles .title-environment .givens-wrapper .givens-title-wrapper {
   padding: 10px 50px 30px 50px;
   text-align: left;
   height: 10%;
 }
-#content .environment .givens-wrapper .givens-title-wrapper .givens-title {
+#content .environment .givens-wrapper .givens-title-wrapper .givens-title, #content .title-environment .givens-wrapper .givens-title-wrapper .givens-title, #content-titles .environment .givens-wrapper .givens-title-wrapper .givens-title, #content-titles .title-environment .givens-wrapper .givens-title-wrapper .givens-title {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin: 0;
 }
-#content .environment .givens-wrapper .givens-playground {
+#content .environment .givens-wrapper .givens-playground, #content .title-environment .givens-wrapper .givens-playground, #content-titles .environment .givens-wrapper .givens-playground, #content-titles .title-environment .givens-wrapper .givens-playground {
   height: 90%;
   margin: 0 5px 0 50px;
 }
-#content .environment .givens-wrapper .givens-playground > * {
+#content .environment .givens-wrapper .givens-playground > *, #content .title-environment .givens-wrapper .givens-playground > *, #content-titles .environment .givens-wrapper .givens-playground > *, #content-titles .title-environment .givens-wrapper .givens-playground > * {
   position: absolute;
 }
-#content .environment .goals-wrapper {
+#content .environment .goals-wrapper, #content .title-environment .goals-wrapper, #content-titles .environment .goals-wrapper, #content-titles .title-environment .goals-wrapper {
   height: 100%;
   width: 30vw;
   justify-content: center;
 }
-#content .environment .goals-wrapper .goals-title-wrapper {
+#content .environment .goals-wrapper .goals-title-wrapper, #content .title-environment .goals-wrapper .goals-title-wrapper, #content-titles .environment .goals-wrapper .goals-title-wrapper, #content-titles .title-environment .goals-wrapper .goals-title-wrapper {
   padding: 10px 50px 30px 50px;
   text-align: left;
   height: 10%;
 }
-#content .environment .goals-wrapper .goals-title-wrapper .goals-title {
+#content .environment .goals-wrapper .goals-title-wrapper .goals-title, #content .title-environment .goals-wrapper .goals-title-wrapper .goals-title, #content-titles .environment .goals-wrapper .goals-title-wrapper .goals-title, #content-titles .title-environment .goals-wrapper .goals-title-wrapper .goals-title {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin: 0;
 }
-#content .environment .goals-wrapper .goals-playground {
+#content .environment .goals-wrapper .goals-playground, #content .title-environment .goals-wrapper .goals-playground, #content-titles .environment .goals-wrapper .goals-playground, #content-titles .title-environment .goals-wrapper .goals-playground {
   height: 90%;
   margin: 0 0 0 50px;
 }
 
 .atom {
+  position: relative;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
   display: inline-block;
   text-align: center;
@@ -186,6 +194,7 @@ p, h1, span, div {
 }
 
 .connector {
+  position: relative;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
   background-color: white;
   display: inline-block;
@@ -249,7 +258,7 @@ p, h1, span, div {
 }
 
 .msg {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 45%;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
