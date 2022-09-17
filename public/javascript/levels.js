@@ -19,8 +19,8 @@ var levels = [
         {
             givens:
             [
-                'p',
-                ['p', 'imp', 'q']
+                ['p', 'imp', 'q'],
+                'p'
             ],
             goals:
             [
@@ -38,9 +38,8 @@ var levels = [
             ],
             goals:
             [
-		'p',
-		'q'
-	    ]
+            ['p','or','q']
+            ]
         }
     ],
     // level 4

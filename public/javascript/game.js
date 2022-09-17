@@ -103,6 +103,7 @@ function dragMoveListener(event) {
                             }
                             $(goals.parentElement).fadeOut(2000, function () {
                                 this.remove();
+                                $('#content-titles').remove();
                                 addClassesAndListeners();
                                 if ($('.environment').length == 0 && $('.msg').length == 0) {
                                     $('body').append(`
@@ -332,6 +333,7 @@ function addClassesAndListeners() {
 
                     $(obj).animate({left: 10}, 550, () => $(obj).animate({left: 30}, 400, () => {
                         let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
+                        console.log(environment);
                         let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
                         let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
                         // $(obj).fadeOut(400, function() {
