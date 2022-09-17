@@ -82,7 +82,15 @@ function dragMoveListener(event) {
             let compareSpaceIdx = compareClassString.indexOf(' ', 0);
             let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
             // console.log(compareConstructorStr);
-            if (compareConstructorStr === constructorStr) {
+            let replacedConstructor = (compareConstructorStr.replaceAll(constructorStr, ""));
+            const len = replacedConstructor.length;
+            let hasIt = ((replacedConstructor[2] === ",") || (replacedConstructor[3] === ",") || (replacedConstructor[len - 2] === ",")) && (replacedConstructor.includes("or(") || replacedConstructor.includes("o("));
+            console.log(replacedConstructor[2]);
+            // console.log(replacedConstructor.slice(-2));
+            console.log(constructorStr);
+            console.log(replacedConstructor);
+            console.log(hasIt);
+            if ((compareConstructorStr === constructorStr) || hasIt) {
                 function finishGoal() {
                     if (event.rect.left > goalsLeft) {
                         // console.log("YOU HAVE WON!");
@@ -96,7 +104,7 @@ function dragMoveListener(event) {
                                 done = false;
                             }
                         }
-                        if (done) {
+                    if (done) { 
                             // $(goals.parentElement).preventDefault();
                             // goals.parentElement.disabled;
                             // $(goals.parentElement).find("*").prop('disabled',true);
