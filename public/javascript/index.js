@@ -88,12 +88,7 @@ window.onload = function() {
 }
 
 let givens = document.getElementsByClassName('givens-playground')[0];
-let expr = new Machine(
-	    new Machine (
-		new Atom('P'),
-		'and',
-		new Atom('Q'),
-	    ),
+let expr = new Machine(new Atom('P'),
 	    'imp',
 	    new Machine(
 		new Atom('R'),
@@ -101,6 +96,19 @@ let expr = new Machine(
 		new Atom('S'),
 	    )
 );
+// let expr = new Machine(
+//   new Machine (
+// new Atom('P'),
+// 'and',
+// new Atom('Q'),
+//   ),
+//   'imp',
+//   new Machine(
+// new Atom('R'),
+// 'or',
+// new Atom('S'),
+//   )
+// );
 expr.element.classList.add("draggable");
 givens.innerHTML = expr.element.outerHTML;
 

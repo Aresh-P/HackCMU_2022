@@ -29,7 +29,7 @@ class Environment {
 
         for (let i = 0; i < data.givens.length; i++) {
             let obj = createobj(data.givens[i]);
-            obj.element.addClass('draggable');
+            $(obj.element).addClass('draggable');
             givensstring += obj.element.outerHTML;
             this.givens.push(obj);
         }
@@ -38,7 +38,7 @@ class Environment {
 
         for (let i = 0; i < data.goals.length; i++) {
             let obj = createobj(data.goals[i]);
-            obj.element.addClass('draggable');
+            $(obj.element).addClass('draggable');
             goalsstring += obj.element.outerHTML;
             this.goals.push(obj);
         }

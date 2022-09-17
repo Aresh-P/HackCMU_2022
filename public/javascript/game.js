@@ -4,21 +4,21 @@ let environments = [];
 let exampleenvironments = [
     {
         givens: [
-            'p',
-            {
-                left: 'p',
-                right: 'q',
-                connect: 'imp'
-            },
-            {
-                left: {
-                    left: 'p',
-                    right: 'q',
-                    connect: 'imp'
-                },
-                right: 'p',
-                connect: 'and'
-            }
+            [
+                [
+                    'p',
+                    'imp',
+                    'q'
+                ],
+                'and',
+                'p'
+            ],
+            [
+                'p',
+                'imp',
+                'q'
+            ],
+            'p'
         ],
         goals: [
             'q'
@@ -34,6 +34,7 @@ function main() {
     currentLevel = new Level(exampleenvironments);
     $('body').append(currentLevel.element);
 }
+
 
 function dragMoveListener (event) {
     var target = event.target
@@ -58,52 +59,42 @@ interact('.draggable').draggable({
         })
     ],
     autoScroll: false,
-    listeners: { 
-        move: dragMoveListener 
+    listeners: {
+        start: function (event) {
+            let rect = event.rect;
+            console.log(event.rect);
+            // $(event.target).attr('data-x-revert', $(event.target).attr('data-x'));
+            // $(event.target).attr('data-y-revert', $(event.target).attr('data-y'));
+            $(event.target.parentElement).prepend($(event.target.outerHTML).css({position: 'absolute', top: rect.top, left: rect.left}).attr('id', 'kill'));
+        },
+        move: dragMoveListener,
+        end: function (event) {
+            // event.target.style.transform = 'translate(' + $(event.target).attr('data-x-revert') + 'px, ' + $(event.target).attr('data-y-revert') + 'px)'
+            // $(event.target).attr('data-x', $(event.target).attr('data-x-revert'));
+            // $(event.target).attr('data-y', $(event.target).attr('data-y-revert'));
+            $('#kill').remove();
+        }
     }
 });
 
-interact('.dropzone').dropzone({
-    // only accept elements matching this CSS selector
-    accept: '.p-atom',
-    // Require a 75% element overlap for a drop to be possible
-    overlap: 0.75,
+$('.givens-playground > *').each(function() {
+    let classString = $(this).attr('class');
+    if (classString.substr(0, 3) === 'imp') {
+        $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
 
-    // listen for drop related events:
 
-    ondropactivate: function (event) {
-        // (event.target).classList.add('atom-active');
-        
-    },
-    ondragenter: function (event) {
-        // interact(event.relatedTarget).unset();
-        // var draggableElement = event.relatedTarget
-        // var dropzoneElement = event.target
+        let acceptstr = '.' + classString.substr(classString.lastIndexOf('left-') + 5);
+        interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
+            accept: acceptstr,
+            overlap: 0.75,
 
-        // // feedback the possibility of a drop
-        // dropzoneElement.classList.add('drop-target')
-        // draggableElement.classList.add('can-drop')
-        // draggableElement.textContent = 'Dragged in'
-    },
-    // ondragleave: function (event) {
-    // // remove the drop feedback style
-    // event.target.classList.remove('drop-target')
-    // event.relatedTarget.classList.remove('can-drop')
-    // event.relatedTarget.textContent = 'Dragged out'
-    // },
-    ondrop: function (event) {
-        (event.relatedTarget).classList.add('atom-active');
-        (event.relatedTarget).classList.remove('draggable');
-        // (event.relatedTarget).transform.parent = (event.target).transform;
-        (event.relatedTarget).setAttribute('data-x', 0);
-        (event.relatedTarget).setAttribute('data-y', 0);
-        (event.relatedTarget).style.transform = "";
-        (event.target).appendChild(event.relatedTarget);
-    // event.relatedTarget.textContent = 'Dropped'
-    },
-    // ondropdeactivate: function (event) {
-    // // remove active dropzone feedback
-    // event.target.classList.remove('drop-active')
-    // event.target.classList.remove('drop-target')
-    // }
+            ondrop: function (event) {
+                // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
+
+                event.target.classList.remove('inactive-constructor');
+            }
+        });
+    }
 });
+
+main();
