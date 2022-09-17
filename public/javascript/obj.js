@@ -1,20 +1,11 @@
 class Obj {
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, element) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.selected = false;
-    }
-
-    onmousedown() {
-        this.selected = true;
-        console.log('Mouse down on Obj');
-    }
-
-    onmouseup() {
-        this.selected = false;
-        console.log('Mouse up on Obj');
+        this.element = element;
     }
 
     isSelected() {
