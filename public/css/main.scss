@@ -76,11 +76,6 @@ p, h1, span, div {
     }
 }
 
-
-.environment-added {
-    height: 60vh !important;
-}
-
 #content {
 
     display: flex;
@@ -312,7 +307,7 @@ p, h1, span, div {
 }
 
 .msg {
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 45%;
     // margin-top: -50%;
