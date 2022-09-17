@@ -22,3 +22,7 @@ mouseOn -> tracks mouse and edits absolute position of object
                     or accomplish with CSS
 
 mouseOff -> 
+
+Potential Ideas:
+- Add negation.
+- Ability for users to create their own levels.
