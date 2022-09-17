@@ -5,7 +5,7 @@ class Machine extends Obj {
 	let symbol;
 	let connectorClass = '';
 	let leftClass = leftobj.element.classList[0];
-	let rightClass = leftobj.element.classList[0];
+	let rightClass = rightobj.element.classList[0];
 	switch (connect) {
 		case 'and':
 			symbol = $(`
@@ -30,10 +30,10 @@ class Machine extends Obj {
 			throw connect+' is an invalid machine connect';
 	}
 
-	let className = connect + "\(" + leftClass + "\, " + rightClass + "\)";
+	let className = connect + "\(" + leftClass + "\," + rightClass + "\)";
 
 	this.element = $(`
-		<div class="` + className + `connector">
+		<div class="` + className + ` connector">
 			<div class="connector-wrapper">
 				<div class="connector-left">
 					` + (leftobj.element).outerHTML + `
