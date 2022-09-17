@@ -5,11 +5,6 @@ class Environment {
 
         let givensstring = `
             <div class="givens-wrapper">
-                <div class="givens-title-wrapper">
-                    <h3 class="givens-title">
-                        Givens:
-                    </h3>
-                </div>
                 <div class="givens-playground">
         `;
         //      </div>
@@ -17,11 +12,6 @@ class Environment {
 
         let goalsstring = `
             <div class="goals-wrapper">
-                 <div class="goals-title-wrapper">
-                     <h3 class="goals-title">
-                         Goals:
-                     </h3>
-                 </div>
                  <div class="goals-playground">
         `;
         //      </div>
