@@ -96,6 +96,9 @@ function dragging() {
 
 function addClasses() {
     $('.givens-playground > *').each(function() {
+        this.addEventListener("dblclick", event => {
+            console.log("Double-click detected");
+        })
         let classString = $(this).attr('class');
         if (classString.substr(0, 3) === 'imp') {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
@@ -115,14 +118,14 @@ function addClasses() {
                     // event.target.classList.remove('inactive-constructor');
                     $(event.target.parentElement).width();
                     let newx = $(event.relatedTarget).attr('data-x') - $(event.target).width() - 20;
-                    let newy = $(event.relatedTarget).attr('data-y');
+                    let newy = $(event.relatedTarget).attr('data-y') + 5;
                     event.relatedTarget.style.transform = 'translate(' + newx + 'px, ' + newy + 'px)'
                     $(event.relatedTarget).attr('data-x', newx);
                     $(event.relatedTarget).attr('data-y', newy);
                     
                     let bigwidth = $(event.target.parentElement).width();
                     let offset = getOffset(event.target);
-                    $(event.relatedTarget.parentElement).prepend($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top, left: offset.left + bigwidth + 10}).addClass('draggable'));
+                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth + 10}).addClass('draggable'));
                 }
             });
         }

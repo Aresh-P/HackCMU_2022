@@ -16,13 +16,13 @@ class Environment {
         //  </div>
 
         let goalsstring = `
-            <div id="goals-wrapper">
-                 <div id="goals-title-wrapper">
-                     <h3 id="goals-title">
+            <div class="goals-wrapper">
+                 <div class="goals-title-wrapper">
+                     <h3 class="goals-title">
                          Goals:
                      </h3>
                  </div>
-                 <div id="goals-playground">
+                 <div class="goals-playground">
         `;
         //      </div>
         //  </div>

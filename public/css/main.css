@@ -153,6 +153,7 @@ p, h1, span, div {
 }
 #content .environment .goals-wrapper .goals-playground {
   height: 90%;
+  margin: 0 0 0 50px;
 }
 
 .atom {
