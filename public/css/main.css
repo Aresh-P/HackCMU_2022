@@ -103,6 +103,7 @@ p, h1, span, div {
   margin: 0;
 }
 #content .environment {
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -176,6 +177,7 @@ p, h1, span, div {
 }
 
 .connector {
+  background-color: white;
   display: inline-block;
   height: -webkit-fit-content;
   height: -moz-fit-content;

@@ -87,7 +87,7 @@ p, h1, span, div {
     margin: 0;
 
     .environment {
-        // overflow: hidden;
+        overflow: hidden;
     
         display: flex;
         flex-direction: row;
@@ -205,10 +205,12 @@ p, h1, span, div {
 
 
 .connector {
+    background-color: white;
     display: inline-block;
     height: fit-content;
     width: fit-content;
     .connector-wrapper {
+
         padding: 5px;
         border: solid black 3.5px;
         // padding: 2px;
