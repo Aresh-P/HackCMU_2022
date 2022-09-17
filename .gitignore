@@ -106,3 +106,4 @@ dist
 # not from template
 .DS_Store
 package-lock.json
+test.txt
