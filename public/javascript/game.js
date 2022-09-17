@@ -1,36 +1,4 @@
 let currentLevel;
-let environments = [];
-
-let exampleenvironments = [
-    {
-        givens: [
-            [
-                [
-                    'p',
-                    'imp',
-                    'q'
-                ],
-                'or',
-                'p'
-            ],
-            [
-                'p',
-                'imp',
-                'q'
-            ],
-            'p'
-        ],
-        goals: [
-            'q'
-        ]
-    },
-    {
-        givens: ['p'],
-        goals: ['p']
-    }
-];
-
-
 
 function getOffset(el) {
     const rect = el.getBoundingClientRect();
@@ -43,9 +11,10 @@ function getOffset(el) {
 }
 
 
-
 function main() {
-    currentLevel = new Level(exampleenvironments);
+    let url = new URL(window.location.href);
+    let level = url.searchParams.get('level');
+    currentLevel = new Level(levels[level - 1]);
     $('body').append(currentLevel.element);
 }
 
@@ -104,8 +73,7 @@ function dragMoveListener(event) {
             let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
             // console.log(compareConstructorStr);
             if (compareConstructorStr === constructorStr) {
-
-                document.addEventListener('mouseup', function() {
+                function finishGoal() {
                     if (event.rect.left > goalsLeft) {
                         // console.log("YOU HAVE WON!");
                         $(child).removeClass("inactive-goal");
@@ -130,6 +98,9 @@ function dragMoveListener(event) {
                                 </div>
                             `);
                             $(givens).append(niceMessage);
+                            if ($('.environment').length == 1) {
+                                $('#content-titles').fadeOut(2000, function() { this.remove() });
+                            }
                             $(goals.parentElement).fadeOut(2000, function () {
                                 this.remove();
                                 addClassesAndListeners();
@@ -147,7 +118,11 @@ function dragMoveListener(event) {
                             goals.parentElement.classList.add("inactive-goal");
                         }
                     }
-                });
+                }
+                
+
+                document.addEventListener('touchend', () => setTimeout(finishGoal, 0));
+                document.addEventListener('mouseup', finishGoal);
             }
         }
         // for (const obj in ($(goals).children(".goals-playground")[0])) {
@@ -266,7 +241,7 @@ function dragging() {
 }
 
 function addClassesAndListeners() {
-    $('.environment').css({height: (90 / $('.environment').length) + 'vh'});
+    $('.environment').css({height: (80 / $('.environment').length) + 'vh'});
 
     $('.givens-playground > *').each(function() {
         // this.addEventListener("dblclick", event => {

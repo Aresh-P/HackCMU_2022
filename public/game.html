@@ -14,8 +14,16 @@
 	    src="https://code.jquery.com/jquery-3.6.1.min.js"
 	    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
 	    crossorigin="anonymous"></script>
+    <script src="./javascript/obj.js"></script>
+    <script src="./javascript/atom.js"></script>
+    <script src="./javascript/machine.js"></script>
+    <script src="./javascript/levelgeneration.js"></script>
+    <script src="./javascript/environment.js"></script>
+    <script src="./javascript/level.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="./javascript/levels.js"></script>
+    <script src="./javascript/game.js" defer></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 </head>
 <body>
@@ -27,83 +35,30 @@
                 </h1>
             </div>
 
-		<div id="logo-image-wrapper">
+		<div id="logo-image-wrapper" onclick="window.location.href = '/'">
                     <img src="./assets/logo.svg" alt="" id="logo-image">
 		</div>
             </div>
 	</nav>
-    <div class="level-selection-wrapper">
-        <div class="level-grid">
-            <ul class="level-row">
-                <div id="lv1" class="level-card" style="background-image:url(./assets/level1c.jpg)" onclick="window.location.href = '/game.html?level=1'">
-                    <h3 class="level-text">
-                        1.
+
+    <section id="content-titles">
+        <div id="environment" class="title-environment">
+            <div class="givens-wrapper">
+                <div class="givens-title-wrapper">
+                    <h3 class="givens-title">
+                        Givens:
                     </h3>
                 </div>
-                <div id="lv2" class="level-card" style="background-image:url(./assets/level2c.png)" onclick="window.location.href = '/game.html?level=2'">
-                    <h3 class="level-text">
-                        2.
+            </div>
+            <div class="goals-wrapper">
+                <div class="goals-title-wrapper">
+                    <h3 class="goals-title">
+                        Goals:
                     </h3>
                 </div>
-                <div id="lv3" class="level-card" style="background-image:url(./assets/level3c.jpg)" onclick="window.location.href = '/game.html?level=3'">
-                    <h3 class="level-text">
-                        3.
-                    </h3>
-                    
-                </div>
-            </ul>
-            <ul class="level-row">
-                <div id="lv4" class="level-card" style="background-image:url(./assets/level4.png)" onclick="window.location.href = '/game.html?level=4'">
-                    <h3 class="level-text">
-                        4.
-                    </h3>
-                </div>
-                <div id="lv5" class="level-card"  style="background-image:url(./assets/level5.png)" onclick="window.location.href = '/game.html?level=5'">
-                    <h3 class="level-text">
-                        5.
-                    </h3>
-                </div>
-                <div id="lv6" class="level-card"  style="background-image:url(./assets/level6.png)" onclick="window.location.href = '/game.html?level=6'">
-                    <h3 class="level-text">
-                        6.
-                    </h3>
-                </div>
-                <div id="lv7" class="level-card"  style="background-image:url(./assets/level7.png)" onclick="window.location.href = '/game.html?level=7'">
-                    <h3 class="level-text">
-                        7.
-                    </h3>
-                </div>
-                
-            </ul>
-            <ul class="level-row">
-                <div class="coming-soon-card">
-                    <h3 class="level-text">
-                        
-                    </h3>
-                </div>
-                <div id="lv8" class="level-card"   style="background-image:url(./assets/level8.png)" onclick="window.location.href = '/game.html?level=8'">
-                    <h3 class="level-text">
-                        8.
-                    </h3>
-                </div>
-                <div id="lv9" class="level-card" style="background-image:url(./assets/level9.jpg)" onclick="window.location.href = '/game.html?level=9'">
-                    <h3 class="level-text">
-                        9.
-                    </h3>
-                </div>
-                <div id="lv10" class="level-card"  style="background-image:url(./assets/level10.png)" onclick="window.location.href = '/game.html?level=10'">
-                    <h3 class="level-text">
-                        10.
-                    </h3>
-                </div>
-                <div class="coming-soon-card">
-                    <h3 class="level-text">
-                        ...& more!
-                    </h3>
-                </div>
-            </ul>
+            </div>
         </div>
-    </div>
+    </section>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
 		integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
