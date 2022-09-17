@@ -30,6 +30,9 @@ let exampleenvironments = [
     }
 ];
 
+
+
+
 function main() {
     currentLevel = new Level(exampleenvironments);
     $('body').append(currentLevel.element);
@@ -77,24 +80,30 @@ interact('.draggable').draggable({
     }
 });
 
-$('.givens-playground > *').each(function() {
-    let classString = $(this).attr('class');
-    if (classString.substr(0, 3) === 'imp') {
-        $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
+function addClasses() {
+    $('.givens-playground > *').each(function() {
+        console.log('test');
+        let classString = $(this).attr('class');
+        if (classString.substr(0, 3) === 'imp') {
+            $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
+    
+    
+            let acceptstr = '.' + classString.substr(classString.lastIndexOf('left-') + 5);
+            interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
+                accept: acceptstr,
+                overlap: 0.75,
+    
+                ondrop: function (event) {
+                    // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
+    
+                    event.target.classList.remove('inactive-constructor');
+                }
+            });
+        }
+    });
+}
 
-
-        let acceptstr = '.' + classString.substr(classString.lastIndexOf('left-') + 5);
-        interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
-            accept: acceptstr,
-            overlap: 0.75,
-
-            ondrop: function (event) {
-                // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
-
-                event.target.classList.remove('inactive-constructor');
-            }
-        });
-    }
-});
 
 main();
+dragging();
+addClasses();
