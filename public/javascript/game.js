@@ -261,7 +261,7 @@ function addClassesAndListeners() {
                     $('.givens-playground')[environment].appendChild(placeholder);
                     $('#content').append('<div class="environment">' + string + '</div>');
                     addClassesAndListeners();
-                }
+                }   
             });
         }
     });
