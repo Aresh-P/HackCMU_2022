@@ -129,20 +129,29 @@ let expr2 = new Atom('P');
 expr2.element.classList.add("draggable");
 givens.innerHTML += expr2.element.outerHTML;
 
-console.log(expr.element.outerHTML == expr2.element.outerHTML);
-console.log(expr.element.classList);
-console.log(expr.element.classList[0]);
+// console.log(expr.element.outerHTML == expr2.element.outerHTML);
+// console.log(expr.element.classList);
+// console.log(expr.element.classList[0]);
 
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY,
+      width: el.offsetWidth,
+      height: el.offsetHeight
+    };
+  }
 
-// function getOffset(el) {
-//     const rect = el.getBoundingClientRect();
-//     return {
-//       left: rect.left + window.scrollX,
-//       top: rect.top + window.scrollY,
-//       width: el.offsetWidth,
-//       height: el.offsetHeight
-//     };
-//   }
+(document.getElementById("logo-text-wrapper")).addEventListener("click", () => {
+    console.log((expr));
+    console.log((expr.element.style.transform));
+    // console.log((expr).getAttribute('transform'));
+    console.log(getOffset(expr.element).left);
+    console.log(getOffset(expr.element).top);
+    console.log(getOffset(expr.element).width);
+    console.log(getOffset(expr.element).height);
+});
 
 
   

@@ -12,7 +12,7 @@ class Atom extends Obj {
 	this.element = $(`
 		<div class="` + lowerCase + ` atom">
 			<div class="atom-text-wrapper">
-				<p class="atom-text + ` + lowerCase + `-color">
+				<p class="atom-text ` + lowerCase + `-color">
 					` + lowerCase + `
 				</p>
 			</div>
