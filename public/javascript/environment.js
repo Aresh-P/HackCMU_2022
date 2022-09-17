@@ -1,5 +1,8 @@
 class Environment {
     constructor(data) {
+        this.givens = [];
+        this.goals = [];
+
         let givensstring = `
             <div class="givens-wrapper">
                 <div class="givens-title-wrapper">
@@ -28,6 +31,7 @@ class Environment {
             let obj = createobj(data.givens[i]);
             obj.element.addClass('draggable');
             givensstring += obj.element.outerHTML;
+            this.givens.push(obj);
         }
 
         givensstring += '</div></div>';
@@ -36,6 +40,7 @@ class Environment {
             let obj = createobj(data.goals[i]);
             obj.element.addClass('draggable');
             goalsstring += obj.element.outerHTML;
+            this.goals.push(obj);
         }
 
         goalsstring += '</div></div>';
