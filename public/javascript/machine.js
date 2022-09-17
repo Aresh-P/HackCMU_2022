@@ -1,0 +1,3 @@
+class Machine extends Obj {
+
+}

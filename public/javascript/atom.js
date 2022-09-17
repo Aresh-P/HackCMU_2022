@@ -1,0 +1,3 @@
+class Atom extends Obj {
+
+}
