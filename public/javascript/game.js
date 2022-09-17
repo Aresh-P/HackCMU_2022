@@ -10,7 +10,7 @@ let exampleenvironments = [
                     'imp',
                     'q'
                 ],
-                'and',
+                'or',
                 'p'
             ],
             [
@@ -249,9 +249,11 @@ function addClassesAndListeners() {
 
                 if (diffX < delta && diffY < delta) {
                     // Click!
-                    let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
-                    let placeholder = $(obj).children('.connector-right').addClass('draggable')[0];
-                    let placeholder2 = $(obj).children('.connector-left').addClass('draggable')[0];
+                    console.log(obj);
+                    // let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
+                    let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
+                    let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                    let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
                     $(obj).remove();
     
                     let string = `
@@ -267,7 +269,7 @@ function addClassesAndListeners() {
                     for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
                         string += $('.givens-playground')[environment].children[i].outerHTML;
                     }
-                    string += placeholder.outerHTML + '</div></div>';
+                    string += placeholder2.outerHTML + '</div></div>';
                     string += `
                     <div class="goals-wrapper">
                     <div class="goals-title-wrapper">
@@ -284,10 +286,10 @@ function addClassesAndListeners() {
     
                     string += '</div></div>'
     
-                    $('.givens-playground')[environment].appendChild(placeholder2);
+                    $('.givens-playground')[environment].appendChild(placeholder);
                     $('#content').append('<div class="environment">' + string + '</div>');
                     addClassesAndListeners();
-                }
+                }   
             });
         }
     });
