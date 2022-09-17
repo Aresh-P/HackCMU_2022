@@ -51,12 +51,12 @@ var levels = [
             [
                 ['p', 'or', 'q'],
                 ['p', 'imp', 'r'],
-		['q', 'imp', 'r']
+		        ['q', 'imp', 'r']
             ],
             goals:
             [
-		'r'
-	    ]
+		        'r'
+	        ]
         }
     ],
     // level 5
@@ -65,12 +65,13 @@ var levels = [
         {
             givens:
             [
-		'p',
-		'q'
-	    ],
+                ['p', 'and', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', 'r']
+	        ],
             goals:
             [
-		['p', 'and', 'q']
+                'r'
             ]
         }
     ],
@@ -80,13 +81,13 @@ var levels = [
         {
             givens:
             [
-		['p', 'or', 'q'],
-		['p', 'imp', 'r'],
-		['q', 'imp', 's']
+                ['p', 'or', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', 's']
             ],
             goals:
             [
-		['r', 'or', 's']
+		        ['r', 'or', 's']
             ]
         }
     ],
@@ -96,12 +97,12 @@ var levels = [
         {
             givens:
             [
-		['p', 'imp', 'q'],
-		['q', 'imp', 'r']
+		        ['p', 'imp', 'q'],
+		        ['q', 'imp', 'r']
             ],
             goals:
             [
-		['p', 'imp', 'r']
+		        ['p', 'imp', 'r']
             ]
         }
     ],
@@ -111,22 +112,22 @@ var levels = [
         {
             givens:
             [
-		[['p', 'and', 'q'], 'and', 'r']
+		        [['p', 'and', 'q'], 'and', 'r']
             ],
             goals:
             [
-		['p', 'and', ['q', 'and', 'r']]
+		        ['p', 'and', ['q', 'and', 'r']]
             ]
         },
         // env 2
         {
             givens:
             [
-		[['p', 'or', 'q'], 'or', 'r']
+		        [['p', 'or', 'q'], 'or', 'r']
             ],
             goals:
             [
-		['p', 'or', ['q', 'or', 'r']]
+		        ['p', 'or', ['q', 'or', 'r']]
             ]
         }
     ],
