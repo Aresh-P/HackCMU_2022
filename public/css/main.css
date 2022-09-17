@@ -135,6 +135,9 @@ p, h1, span, div {
   height: 90%;
   margin: 0 5px 0 50px;
 }
+#content .environment .givens-wrapper .givens-playground > * {
+  position: absolute;
+}
 #content .environment .goals-wrapper {
   height: 100%;
   width: 30vw;

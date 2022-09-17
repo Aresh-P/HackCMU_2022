@@ -122,7 +122,11 @@ p, h1, span, div {
             .givens-playground {
                 height: 90%;
                 margin: 0 5px 0 50px;
+                > * {
+                    position: absolute;
+                }
             }
+
         }
     
         .goals-wrapper {
