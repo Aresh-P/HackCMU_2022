@@ -365,4 +365,31 @@ p, h1, span, div {
   #logo-image {
     height: 100% !important;
   }
+  #logo-text-wrapper {
+    padding: 5px 20px 5px 20px !important;
+  }
+  #logo-image-wrapper {
+    padding: 5px 20px 5px 20px !important;
+  }
+  .level-selection-wrapper {
+    margin-top: 20px;
+    height: auto !important;
+  }
+  .level-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .level-grid .level-row {
+    padding: 0;
+    margin: 0;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .level-grid .level-row .level-card {
+    align-self: center !important;
+  }
+  .coming-soon-card {
+    display: none;
+  }
 }/*# sourceMappingURL=main.css.map */

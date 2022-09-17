@@ -469,11 +469,36 @@ p, h1, span, div {
         height: 100% !important;
     }
 
-    // #logo-text-wrapper {
+    #logo-text-wrapper {
+        padding: 5px 20px 5px 20px !important;
+    }
+
+    #logo-image-wrapper {
+        padding: 5px 20px 5px 20px !important;
+    }
+
+    .level-selection-wrapper {
+        margin-top: 20px;
+        height: auto !important;
+    }
+
+    .level-grid {
+        display:flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
         
-    // }
+        .level-row {
+            padding:0;
+            margin: 0;
+            flex-direction: column !important;
+            justify-content: center !important;
+            .level-card {
+                align-self: center !important;
+            }
+        }
+    }
 
-    // #logo-image-wrapper {
-
-    // }
+    .coming-soon-card {
+        display: none;
+    }
 }   
