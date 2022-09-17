@@ -9,3 +9,21 @@ Name ideas:
 - something with "implies"
 
 Proof Play
+
+
+
+objects
+- positional data
+
+
+dragging -> mouseOn & mouseOff
+
+mouseOn -> tracks mouse and edits absolute position of object 
+                make sure that objects doesn't go out of bounds
+                    factor in size of objects into outOfBounds check
+                (optional) check if mouse is on dropzone of a machine
+                    or accomplish with CSS
+
+
+
+mouseOff -> 
