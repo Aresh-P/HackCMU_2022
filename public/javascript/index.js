@@ -38,7 +38,7 @@ window.onload = function() {
       autoScroll: false,
       listeners: { 
           move: dragMoveListener 
-        }
+      }
   });
 
     interact('.dropzone').dropzone({
@@ -146,7 +146,95 @@ function getOffset(el) {
 
 });
 
+function addClassesAndListeners() {
+  $('.givens-playground > *').each(function() {
+      // this.addEventListener("dblclick", event => {
+      //     console.log("Double-click detected");
+      // })
+      let classString = $(this).attr('class');
+      if (classString.substr(0, 3) === 'imp' && !$(this).children('.connector-wrapper').children('.connector-left').hasClass('inactive-constructor')) {
+          $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
+  
+  
+          let leftindex = classString.lastIndexOf('left-');
+          let spaceindex = classString.indexOf(' ', leftindex);
+          let acceptstr = '.' + classString.substr(leftindex + 5, spaceindex - (leftindex + 5));
+          interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
+              accept: acceptstr,
+              overlap: 0.75,
+  
+              ondrop: function (event) {
+                  console.log("successful");
+                  // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
+  
+                  // event.target.classList.remove('inactive-constructor');
+                  $(event.target.parentElement).width();
+                  let newx = $(event.relatedTarget).attr('data-x') - $(event.target).width() - 20;
+                  let newy = $(event.relatedTarget).attr('data-y') + 5;
+                  event.relatedTarget.style.transform = 'translate(' + newx + 'px, ' + newy + 'px)'
+                  $(event.relatedTarget).attr('data-x', newx);
+                  $(event.relatedTarget).attr('data-y', newy);
+                  
+                  let bigwidth = $(event.target.parentElement).width();
+                  let offset = getOffset(event.target);
+                  $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth + 10}).addClass('draggable'));
+              }
+          });
+      } else if (classString.substr(0, 3) === 'and' && !$(this).hasClass('listener')) {
+          let obj = this;
+          $(obj).addClass('listener');
 
+          document.addEventListener('onclick', function () {
+              $(obj.parentElement).append($(obj).children('.connector-left').addClass('draggable'));
+              $(obj.parentElement).append($(obj).children('.connector-right').addClass('draggable'));
+              $(obj).remove();
+          });
+      } else if (classString.substr(0, 2) === 'or' && !$(this).hasClass('listener')) {
+          let obj = this;
+          $(obj).addClass('listener');
+
+          document.addEventListener('onclick', function () {
+              let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
+              let placeholder = $(obj).children('.connector-right').addClass('draggable')[0];
+              let placeholder2 = $(obj).children('.connector-left').addClass('draggable')[0];
+              $(obj).remove();
+
+              let string = `
+                  <div class="givens-wrapper">
+                  <div class="givens-title-wrapper">
+                      <h3 class="givens-title">
+                          Givens:
+                      </h3>
+                  </div>
+                  <div class="givens-playground">
+              `;
+              
+              for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
+                  string += $('.givens-playground')[environment].children[i].outerHTML;
+              }
+              string += placeholder.outerHTML + '</div></div>';
+              string += `
+                <div class="goals-wrapper">
+                <div class="goals-title-wrapper">
+                    <h3 class="goals-title">
+                        Goals:
+                    </h3>
+                </div>
+                <div class="goals-playground">
+              `;
+
+              for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
+                string += $('.goals-playground')[environment].children[i].outerHTML;
+              }
+
+              string += '</div></div>'
+
+              $('.givens-playground')[environment].appendChild(placeholder2);
+              $('#content').append('<div class="environment">' + string + '</div>')
+          });
+      }
+  });
+}
   
 // window.onload = function() {
 

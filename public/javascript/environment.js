@@ -38,6 +38,7 @@ class Environment {
 
         for (let i = 0; i < data.goals.length; i++) {
             let obj = createobj(data.goals[i]);
+            $(obj.element).addClass('inactive-goal');
             goalsstring += obj.element.outerHTML;
             this.goals.push(obj);
         }
