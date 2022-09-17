@@ -113,22 +113,11 @@ var levels = [
         {
             givens:
             [
-		        [['p', 'and', 'q'], 'and', 'r']
+                ['p', [['p', 'imp', ['q', 'and', 'r']],'or',[['r', 'and', 'q'], 'imp', ['p', 'and', 'r']]], ['q', 'imp', ['r', 'imp', 's']]]
             ],
             goals:
             [
-		        ['p', 'and', ['q', 'and', 'r']]
-            ]
-        },
-        // env 2
-        {
-            givens:
-            [
-		        [['p', 'or', 'q'], 'or', 'r']
-            ],
-            goals:
-            [
-		        ['p', 'or', ['q', 'or', 'r']]
+                's'
             ]
         }
     ],
@@ -138,22 +127,11 @@ var levels = [
         {
             givens:
             [
-                [['p', 'and', 'q'], 'or', 'r']
+		        [['p', 'or', 'q'], 'or', 'r']
             ],
             goals:
             [
-                [['p', 'or', 'r'], 'and', ['q', 'or', 'r']]
-            ]
-        },
-        // env 2
-        {
-            givens:
-            [
-                [['p', 'or', 'q'], 'and', 'r']
-            ],
-            goals:
-            [
-                [['p', 'and', 'r'], 'or', ['q', 'and', 'r']]
+		        ['p', 'or', ['q', 'or', 'r']]
             ]
         }
     ],
