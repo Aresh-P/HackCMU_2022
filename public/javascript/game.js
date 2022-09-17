@@ -109,6 +109,7 @@ function addClasses() {
                 overlap: 0.75,
     
                 ondrop: function (event) {
+                    console.log("successful");
                     // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
     
                     // event.target.classList.remove('inactive-constructor');
