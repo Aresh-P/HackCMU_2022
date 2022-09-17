@@ -24,6 +24,7 @@ mouseOn -> tracks mouse and edits absolute position of object
 mouseOff -> 
 
 Potential Ideas:
+- Add sounds (and potentially a different sound for completing level ten).
 - Add negation.
 - Ability for users to create their own levels.
 - Replace variables / connectors with the box symbols.
