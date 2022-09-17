@@ -1,6 +1,9 @@
 :root {
   --blue: #3737F4;
   --red: #E93200;
+  --green: #77B757;
+  --orange: #ECA139;
+  --purple: ;
 }
 
 h1 {
@@ -236,6 +239,27 @@ p, h1, span, div {
 .implies-symbol {
   min-width: 44px !important;
   padding: 6px 2px 6px 2px !important;
+}
+
+.inactive-constructor {
+  filter: grayscale(1) !important;
+  border-style: dotted !important;
+}
+
+.p-color {
+  color: var(--blue);
+}
+
+.q-color {
+  color: var(--red);
+}
+
+.r-color {
+  color: var(--green);
+}
+
+.s-color {
+  color: var(--orange);
 }
 
 #atom {
