@@ -10,7 +10,7 @@ let exampleenvironments = [
                     'imp',
                     'q'
                 ],
-                'and',
+                'or',
                 'p'
             ],
             [
@@ -116,12 +116,40 @@ function dragging() {
                     for(var i=0; i<children.length; i++){
                         var child = children[i];
                         let compareClassString = $(child).attr("class");
-                        console.log(compareClassString);
+                        // console.log(compareClassString);
                         let compareSpaceIdx = compareClassString.indexOf(' ', 0);
                         let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
-                        console.log(compareConstructorStr);
+                        // console.log(compareConstructorStr);
                         if (compareConstructorStr === constructorStr) {
-                            console.log("YOU HAVE WON!")
+                            // console.log("YOU HAVE WON!");
+                            $(child).removeClass("inactive-goal");
+                            // check if environment done
+                            let done = true;
+                            for (var j=0; i<children.length; i++) {
+                                var childj = children[j];
+                                if ($(childj).hasClass("inactive-goal")) {
+                                    done = false;
+                                }
+                            }
+                            if (done) {
+                                // $(goals.parentElement).preventDefault();
+                                // goals.parentElement.disabled;
+                                // $(goals.parentElement).find("*").prop('disabled',true);
+                                let niceMessage = $(`
+                                    <div class="msg">
+                                        <h3>
+                                            Nice! You did it!
+                                        </h3>
+                                    </div>
+                                `)[0];
+                                $(givens).append(niceMessage);
+                                console.log(niceMessage);
+                                $(goals.parentElement).fadeOut(2000, function () {
+                                    this.remove();
+                                });
+                                
+                                goals.parentElement.classList.add("inactive-goal");
+                            }
                         }
                     }
                     // for (const obj in ($(goals).children(".goals-playground")[0])) {
@@ -192,54 +220,76 @@ function addClassesAndListeners() {
 
                 if (diffX < delta && diffY < delta) {
                     // Click!
-                    console.log('testandclick');
-                    $(obj.parentElement).append($(obj).children('.connector-left').addClass('draggable'));
-                    $(obj.parentElement).append($(obj).children('.connector-right').addClass('draggable'));
+                    let top = getOffset(obj).top;
+                    let left = getOffset(obj).left;
+                    let leftobj = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable').css({top: top, left: left});
+                    $(obj.parentElement).append(leftobj);
+                    $(obj.parentElement).append($(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable').css({top: top, left: left + leftobj.width() + 10}));
                     $(obj).remove();
+                    addClassesAndListeners();
                 }
             });
         } else if (classString.substr(0, 2) === 'or' && !$(this).hasClass('listener')) {
             let obj = this;
             $(obj).addClass('listener');
-  
-            document.addEventListener('click', function () {
-                let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
-                let placeholder = $(obj).children('.connector-right').addClass('draggable')[0];
-                let placeholder2 = $(obj).children('.connector-left').addClass('draggable')[0];
-                $(obj).remove();
-  
-                let string = `
-                    <div class="givens-wrapper">
-                    <div class="givens-title-wrapper">
-                        <h3 class="givens-title">
-                            Givens:
+
+
+            const delta = 6;
+            let startX;
+            let startY;
+
+            obj.addEventListener('mousedown', function (event) {
+                startX = event.pageX;
+                startY = event.pageY;
+            });
+
+            obj.addEventListener('mouseup', function (event) {
+                const diffX = Math.abs(event.pageX - startX);
+                const diffY = Math.abs(event.pageY - startY);
+
+                if (diffX < delta && diffY < delta) {
+                    // Click!
+                    console.log(obj);
+                    // let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
+                    let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
+                    let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                    let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                    $(obj).remove();
+    
+                    let string = `
+                        <div class="givens-wrapper">
+                        <div class="givens-title-wrapper">
+                            <h3 class="givens-title">
+                                Givens:
+                            </h3>
+                        </div>
+                        <div class="givens-playground">
+                    `;
+                    
+                    for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
+                        string += $('.givens-playground')[environment].children[i].outerHTML;
+                    }
+                    string += placeholder2.outerHTML + '</div></div>';
+                    string += `
+                    <div class="goals-wrapper">
+                    <div class="goals-title-wrapper">
+                        <h3 class="goals-title">
+                            Goals:
                         </h3>
                     </div>
-                    <div class="givens-playground">
-                `;
-                
-                for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
-                    string += $('.givens-playground')[environment].children[i].outerHTML;
-                }
-                string += placeholder.outerHTML + '</div></div>';
-                string += `
-                  <div class="goals-wrapper">
-                  <div class="goals-title-wrapper">
-                      <h3 class="goals-title">
-                          Goals:
-                      </h3>
-                  </div>
-                  <div class="goals-playground">
-                `;
-  
-                for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
-                  string += $('.goals-playground')[environment].children[i].outerHTML;
-                }
-  
-                string += '</div></div>'
-  
-                $('.givens-playground')[environment].appendChild(placeholder2);
-                $('#content').append('<div class="environment">' + string + '</div>')
+                    <div class="goals-playground">
+                    `;
+    
+                    for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
+                    string += $('.goals-playground')[environment].children[i].outerHTML;
+                    }
+    
+                    string += '</div></div>'
+    
+                    $('.givens-playground')[environment].appendChild(placeholder);
+                    $('#content').append('<div class="environment">' + string + '</div>');
+                    addClassesAndListeners();
+                }   
             });
         }
     });
