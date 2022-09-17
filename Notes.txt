@@ -25,8 +25,12 @@ mouseOff ->
 
 Potential Ideas:
 - Level selector / main menu and ability to load levels from levels.js.
+- Level title at the top of every level.
 - Add sounds (and potentially a different sound for completing level ten).
 - Create a QR code for the website.
+- Mobile debugging
+- Overlap objects, remove duplicates.
+- Level completion banner with positive message and buttons to go back to the main menu and to go to the next level.
 - Add negation.
 - Ability for users to create their own levels.
 - Replace variables / connectors with the box symbols.
