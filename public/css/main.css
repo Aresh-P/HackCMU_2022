@@ -74,6 +74,7 @@ p, h1, span, div {
   margin: 0;
 }
 #navbar #nav-container #logo-text-wrapper h1 {
+  white-space: nowrap;
   margin: 0;
   padding: 0;
 }
@@ -88,40 +89,65 @@ p, h1, span, div {
   padding: 5px 50px 5px 50px;
 }
 #navbar #nav-container #logo-image-wrapper #logo-image {
-  height: 100%;
+  height: 205%;
+}
+
+.environment-added {
+  height: 60vh !important;
 }
 
 #content {
-  overflow: hidden;
-  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+#content .environment {
   display: flex;
   flex-direction: row;
+  padding: 0;
+  margin: 0;
+  height: 90vh;
+  border-bottom: solid black 2.5px;
 }
-#content #givens-wrapper {
+#content .environment .givens-wrapper {
   height: 100%;
   width: 70vw;
   border-right: solid black 2.5px;
   justify-content: center;
 }
-#content #givens-wrapper #givens-title-wrapper {
-  padding: 5px 50px 5px 50px;
-  text-align: center;
+#content .environment .givens-wrapper .givens-title-wrapper {
+  padding: 10px 50px 5px 50px;
+  text-align: left;
   height: 10%;
 }
-#content #givens-wrapper #givens-playground {
-  height: 90%;
+#content .environment .givens-wrapper .givens-title-wrapper .givens-title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-#content #goals-wrapper {
+#content .environment .givens-wrapper .givens-playground {
+  height: 90%;
+  margin: 0 0 0 50px;
+}
+#content .environment .goals-wrapper {
   height: 100%;
   width: 30vw;
   justify-content: center;
 }
-#content #goals-wrapper #goals-title-wrapper {
-  padding: 5px 50px 5px 50px;
-  text-align: center;
+#content .environment .goals-wrapper .goals-title-wrapper {
+  padding: 10px 50px 5px 50px;
+  text-align: left;
   height: 10%;
 }
-#content #goals-wrapper #goals-playground {
+#content .environment .goals-wrapper .goals-title-wrapper .goals-title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#content .environment .goals-wrapper .goals-playground {
   height: 90%;
 }
 
@@ -134,18 +160,22 @@ p, h1, span, div {
   touch-action: none;
 }
 .atom .atom-text-wrapper .atom-text {
-  font-size: 25px;
+  font-size: 40px;
   line-height: 40px;
   padding: 0;
   margin: 0;
   cursor: move;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .atom-active .atom-text-wrapper .atom-text {
   color: #E93200 !important;
 }
 
-.and {
+.connector {
   display: inline-block;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -155,7 +185,8 @@ p, h1, span, div {
   width: fit-content;
   touch-action: none;
 }
-.and .and-wrapper {
+.connector .connector-wrapper {
+  padding: 5px;
   border: solid black 2.5px;
   border-radius: 5px;
   display: flex;
@@ -171,29 +202,27 @@ p, h1, span, div {
   width: -moz-fit-content;
   width: fit-content;
 }
-.and .and-wrapper .and-left {
+.connector .connector-wrapper .connector-left {
+  padding: 5px;
   min-width: 50px;
   min-height: 50px;
   width: auto;
   height: auto;
-  border: dotted black 2.5px;
   border-radius: 5px;
 }
-.and .and-wrapper .and-symbol {
+.connector .connector-wrapper .connector-symbol {
   min-width: 40px;
   min-height: 40px;
   width: auto;
   height: auto;
-  border-top: dotted black 2.5px;
-  border-bottom: dotted black 2.5px;
-  border-radius: 5px;
+  padding: 8px;
 }
-.and .and-wrapper .and-right {
+.connector .connector-wrapper .connector-right {
+  padding: 5px;
   min-width: 50px;
   min-height: 50px;
   width: auto;
   height: auto;
-  border: dotted black 2.5px;
   border-radius: 5px;
 }
 
@@ -213,4 +242,10 @@ p, h1, span, div {
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+  #logo-image {
+    height: 100% !important;
+  }
 }/*# sourceMappingURL=main.css.map */
