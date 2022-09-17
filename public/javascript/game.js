@@ -85,19 +85,62 @@ function dragging() {
             },
             move: dragMoveListener,
             end: function (event) {
+                // let goals = document.getElementsByClassName("goals-wrapper");
+                let givens = (event.target).parentElement;
+                console.log(givens);
+                
+                let goals = $(givens.parentElement.parentElement).children(".goals-wrapper")[0];
+                // let currEnv = goals.parentElement;
+                // let envIdx = Array.from(goals.parentElement.parentElement.children).indexOf();
+                // console.log(goals);
+
+                // let envIdx = currentLevel.environments.indexOf(currEnv);
+                let leftCoord = getOffset(event.target).left;
+                let width = getOffset(event.target).width;
+                // console.log(leftCoord);
+                // console.log(goals);
+                // console.log(width);
+                let goalsLeft = getOffset(goals).left;
+                console.log(goalsLeft);
+                if ((leftCoord + width) >= (goalsLeft * .965)) {
+                //     console.log("in GOALS!");
+                    let classStr = $(event.target).attr("class");
+                    console.log(classStr);
+                    let spaceIdx = classStr.indexOf(' ', 0);
+                    let constructorStr = classStr.substr(0, spaceIdx);
+                    console.log(constructorStr);
+                    // if (currentLevel.environments[envIdx].goals.includes(constructorStr))
+                    console.log(goals);
+                    console.log($(goals).children(".goals-playground")[0]);
+                    var children = ($(goals).children(".goals-playground")[0]).children;
+                    for(var i=0; i<children.length; i++){
+                        var child = children[i];
+                        let compareClassString = $(child).attr("class");
+                        console.log(compareClassString);
+                        let compareSpaceIdx = compareClassString.indexOf(' ', 0);
+                        let compareConstructorStr = compareClassString.substr(0, compareSpaceIdx);
+                        console.log(compareConstructorStr);
+                        if (compareConstructorStr === constructorStr) {
+                            console.log("YOU HAVE WON!")
+                        }
+                    }
+                    // for (const obj in ($(goals).children(".goals-playground")[0])) {
+                    //     console.log(obj);
+                    }
+                }
                 // event.target.style.transform = 'translate(' + $(event.target).attr('data-x-revert') + 'px, ' + $(event.target).attr('data-y-revert') + 'px)'
                 // $(event.target).attr('data-x', $(event.target).attr('data-x-revert'));
                 // $(event.target).attr('data-y', $(event.target).attr('data-y-revert'));
                 // $('#kill').remove();
             }
-        }
-    });
+        });
 }
 
 function addClasses() {
     $('.givens-playground > *').each(function() {
         this.addEventListener("dblclick", event => {
-            console.log("Double-click detected");
+            // console.log("Double-click detected");
+
         })
         let classString = $(this).attr('class');
         if (classString.substr(0, 3) === 'imp') {
@@ -125,7 +168,7 @@ function addClasses() {
                     
                     let bigwidth = $(event.target.parentElement).width();
                     let offset = getOffset(event.target);
-                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth + 10}).addClass('draggable'));
+                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 6, left: offset.left + bigwidth + 10}).addClass('draggable'));
                 }
             });
         }
