@@ -504,13 +504,16 @@ p, h1, span, div {
 
     .givens-playground {
         margin: 0 !important;
+        margin-left: 20px !important;
     }
     
     .goals-playground {
         margin: 0 !important;
+        margin-left: 20px !important;
+        // margin-left: 20px;
     }
 
     .goals-title-wrapper, .givens-title-wrapper  {
-        padding: 10px 10px 10px 10px !important;
+        padding: 10px 10px 10px 20px !important;
     }
 }   
