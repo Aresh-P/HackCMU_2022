@@ -279,3 +279,21 @@ p, h1, span, div {
 //     // touch-action: none;
 //     // user-select: none;
 //   }
+
+#atom {
+    border-style: solid;
+    border-color: red;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#machine {
+    border-style: solid;
+    border-color: blue;
+    display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}

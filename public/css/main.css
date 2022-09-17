@@ -195,4 +195,22 @@ p, h1, span, div {
   height: auto;
   border: dotted black 2.5px;
   border-radius: 5px;
+}
+
+#atom {
+  border-style: solid;
+  border-color: red;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#machine {
+  border-style: solid;
+  border-color: blue;
+  display: inline-block;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
 }/*# sourceMappingURL=main.css.map */
