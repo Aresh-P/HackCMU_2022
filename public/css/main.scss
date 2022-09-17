@@ -155,6 +155,7 @@ p, h1, span, div {
 // }
 
 .atom {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -208,6 +209,7 @@ p, h1, span, div {
 
 
 .connector {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: white;
     display: inline-block;
     height: fit-content;
