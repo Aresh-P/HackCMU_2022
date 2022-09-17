@@ -121,7 +121,7 @@ p, h1, span, div {
   justify-content: center;
 }
 #content .environment .givens-wrapper .givens-title-wrapper {
-  padding: 10px 50px 5px 50px;
+  padding: 10px 50px 30px 50px;
   text-align: left;
   height: 10%;
 }
@@ -144,7 +144,7 @@ p, h1, span, div {
   justify-content: center;
 }
 #content .environment .goals-wrapper .goals-title-wrapper {
-  padding: 10px 50px 5px 50px;
+  padding: 10px 50px 30px 50px;
   text-align: left;
   height: 10%;
 }
@@ -296,6 +296,60 @@ p, h1, span, div {
   padding: 5px;
   margin: 5px;
   border-radius: 10px;
+}
+
+.level-selection-wrapper {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.level-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.level-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.level-card, .coming-soon-card {
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+  border: solid black 5px;
+  border-radius: 5px;
+  width: 200px;
+  height: 120px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.level-card:hover, .coming-soon-card:hover {
+  transform: rotate(5deg);
+  filter: brightness(0.8);
+}
+
+.coming-soon-card {
+  border: none;
+  text-align: left !important;
+}
+
+.level-text {
+  padding: 0;
+  margin: 0;
+  text-shadow: 20px 20px 20px white;
 }
 
 @media only screen and (max-width: 750px) {

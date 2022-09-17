@@ -111,7 +111,7 @@ p, h1, span, div {
             justify-content: center;
     
             .givens-title-wrapper {
-                padding: 10px 50px 5px 50px;
+                padding: 10px 50px 30px 50px;
                 text-align: left;
                 .givens-title {
                     user-select: none;
@@ -131,7 +131,7 @@ p, h1, span, div {
     
         .goals-wrapper {
             .goals-title-wrapper {
-                padding: 10px 50px 5px 50px;
+                padding: 10px 50px 30px 50px;
                 text-align:left;
                 .goals-title {
                     user-select: none;
@@ -387,9 +387,81 @@ p, h1, span, div {
     border-radius: 10px;
 }
 
+.level-selection-wrapper {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.level-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // justify-content: space-around;
+}
+
+.level-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    // justify-content: space-around;
+}
+
+.level-card, .coming-soon-card {
+    // transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+    border: solid black 5px;
+    border-radius: 5px;
+    width: 200px;
+    height: 120px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    // background-color: #3737F4;
+    
+    background-size:cover;
+    background-repeat: no-repeat;
+
+    user-select: none;
+}
+
+
+
+.level-card:hover, .coming-soon-card:hover {
+    transform: rotate(5deg);
+    // background-color: black;
+    // filter:sepia(1);
+    // filter:grayscale(1);
+    filter: brightness(0.8);
+}
+
+.coming-soon-card {
+    border: none;
+    text-align: left !important;
+    // justify-content: unset;
+}
+
+.level-text {
+    // align-self: center;
+    padding: 0;
+    margin: 0;
+    // box-shadow: 0 30px 40px rgba(0,0,0,1);
+    text-shadow: 20px 20px 20px white;
+
+}
 
 @media only screen and (max-width: 750px) {
     #logo-image {
         height: 100% !important;
+    }
+
+    #logo-text-wrapper {
+        
+    }
+
+    #logo-image-wrapper {
+
     }
 }   
