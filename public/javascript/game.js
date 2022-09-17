@@ -1,36 +1,4 @@
 let currentLevel;
-let environments = [];
-
-let exampleenvironments = [
-    {
-        givens: [
-            [
-                [
-                    'p',
-                    'imp',
-                    'q'
-                ],
-                'or',
-                'p'
-            ],
-            [
-                'p',
-                'imp',
-                'q'
-            ],
-            'p'
-        ],
-        goals: [
-            'q'
-        ]
-    },
-    {
-        givens: ['p'],
-        goals: ['p']
-    }
-];
-
-
 
 function getOffset(el) {
     const rect = el.getBoundingClientRect();
@@ -43,9 +11,10 @@ function getOffset(el) {
 }
 
 
-
 function main() {
-    currentLevel = new Level(exampleenvironments);
+    let url = new URL(window.location.href);
+    let level = url.searchParams.get('level');
+    currentLevel = new Level(levels[level - 1]);
     $('body').append(currentLevel.element);
 }
 
@@ -129,6 +98,9 @@ function dragMoveListener(event) {
                                 </div>
                             `);
                             $(givens).append(niceMessage);
+                            if ($('.environment').length == 1) {
+                                $('#content-titles').fadeOut(2000, function() { this.remove() });
+                            }
                             $(goals.parentElement).fadeOut(2000, function () {
                                 this.remove();
                                 addClassesAndListeners();
