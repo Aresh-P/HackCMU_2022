@@ -103,7 +103,7 @@ var levels = [
             ],
             goals:
             [
-		        ['r', 'imp', 's']
+		        ['r', 'or', 's']
             ]
         }
     ],
