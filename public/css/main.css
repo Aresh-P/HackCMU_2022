@@ -150,4 +150,11 @@ p, h1, span {
 #content #goals-wrapper #goals-playground {
   height: 90%;
 }
+
+#box {
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+  color: white;
+}
 /*# sourceMappingURL=main.css.map */
