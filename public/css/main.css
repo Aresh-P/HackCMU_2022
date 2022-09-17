@@ -1,3 +1,8 @@
+:root {
+  --blue: #3737F4;
+  --red: #E93200;
+}
+
 h1 {
   font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   font-size: 24px;
@@ -54,6 +59,10 @@ p, h1, span {
 }
 
 #navbar #nav-container {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,19 +73,81 @@ p, h1, span {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 50px 10px 50px;
+  border-bottom: solid black;
 }
 
 #navbar #nav-container #logo-text-wrapper {
-  padding: 0;
+  padding: 10px 50px 10px 50px;
   margin: 0;
 }
 
+#navbar #nav-container #logo-text-wrapper h1 {
+  margin: 0;
+  padding: 0;
+}
+
+#navbar #nav-container #logo-text-wrapper h1 .red-p {
+  color: var(--red);
+}
+
+#navbar #nav-container #logo-text-wrapper h1 .blue-p {
+  color: var(--blue);
+}
+
+#navbar #nav-container #logo-image-wrapper {
+  height: 100%;
+  padding: 5px 50px 5px 50px;
+}
+
 #navbar #nav-container #logo-image-wrapper #logo-image {
-  height: 2.5em;
+  height: 100%;
 }
 
 #content {
   height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#content #givens-wrapper {
+  height: 100%;
+  width: 70vw;
+  border-right: solid black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#content #givens-wrapper #givens-title-wrapper {
+  padding: 5px 50px 5px 50px;
+  text-align: center;
+  height: 10%;
+}
+
+#content #givens-wrapper #givens-playground {
+  height: 90%;
+}
+
+#content #goals-wrapper {
+  height: 100%;
+  width: 30vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#content #goals-wrapper #goals-title-wrapper {
+  padding: 5px 50px 5px 50px;
+  text-align: center;
+  height: 10%;
+}
+
+#content #goals-wrapper #goals-playground {
+  height: 90%;
 }
 /*# sourceMappingURL=main.css.map */

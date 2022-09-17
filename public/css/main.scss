@@ -1,5 +1,10 @@
 // font stuff
 
+:root {
+    --blue: #3737F4;
+    --red: #E93200;
+}
+
 h1 { font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } 
 
 h3 { font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } 
@@ -25,26 +30,88 @@ p, h1, span {
 
 #navbar {
     #nav-container {
+        user-select: none;
         height: 10vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px 50px 10px 50px;
         // padding: 10px 50px 10px 50px;
         #logo-text-wrapper {
-            padding: 0;
+            padding: 10px 50px 10px 50px;
             margin: 0;
+            // padding: 0;
+            // margin: 0;
+            h1 {
+                // font-size: 80%;
+                margin: 0;
+                padding: 0;
+                .red-p {
+                    color: var(--red);
+                }
+                .blue-p {
+                    color: var(--blue);
+                }
+            }
         }
         
         #logo-image-wrapper {
+            height: 100%;
+            padding: 5px 50px 5px 50px;
             #logo-image {
-                height: 2.5em;
+                // height: 2.5em;
+                // margin-top: 10px;
+                height: 100%
             }
         }
+
+        border-bottom: solid black;
     }
 }
 
 
 #content {
     height: 90vh;
+
+    display: flex;
+    flex-direction: row;
+
+    #givens-wrapper {
+        height: 100%;
+        width: 70vw;
+        border-right: solid black;
+
+        justify-content: center;
+
+        #givens-title-wrapper {
+            padding: 5px 50px 5px 50px;
+            text-align: center;
+            // #givens-title {
+                
+            // }
+            height: 10%;
+        }
+
+        #givens-playground {
+            height: 90%;
+        }
+    }
+
+    #goals-wrapper {
+        #goals-title-wrapper {
+            padding: 5px 50px 5px 50px;
+            text-align: center;
+            // #goals-title {
+                
+            // }
+            height: 10%;
+        }
+        height: 100%;
+        width: 30vw;
+
+        justify-content: center;        
+        
+        #goals-playground {
+            height: 90%;
+        }
+    }
 }

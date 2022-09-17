@@ -7,7 +7,7 @@
     <meta name="keywords" content="formal verification, proof, game, propositional logic">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <!-- <link rel="icon" href="assets/"> -->
+    <link rel="icon" href="./assets/logo.png">
     <script src="./javascript/obj.js"></script>
     <script src="./javascript/atom.js"></script>
     <script src="./javascript/machine.js"></script>
@@ -18,13 +18,16 @@
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="./javascript/index.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script>
 </head>
 <body>
     <nav id="navbar">
         <div id="nav-container">
-            <h1 id="logo-text-wrapper">
-                Point & Prove
-            </h1>
+            <div id="logo-text-wrapper">  
+                <h1>
+                    <span class="red-p">P</span>oint & <span class="blue-p">P</span>rove
+                </h1>
+            </div>
 
             <div id="logo-image-wrapper">
                 <img src="./assets/logo.svg" alt="" id="logo-image">
@@ -34,10 +37,24 @@
 
     <section id="content">
         <div id="givens-wrapper" class="">
-
+            <div id="givens-title-wrapper">
+                <h3 id="givens-title">
+                    Givens:
+                </h3>
+            </div>
+            <div id="givens-playground">
+                
+            </div>
         </div>
         <div id="goals-wrapper">
-
+            <div id="goals-title-wrapper">
+                <h3 id="goals-title">
+                    Goals:
+                </h3>
+            </div>
+            <div id="goals-playground">
+                
+            </div>
         </div>
     </section>
 
