@@ -210,9 +210,9 @@ p, h1, span, div {
     width: fit-content;
     .connector-wrapper {
         padding: 5px;
-        border: solid black 2.5px;
+        border: solid black 3.5px;
         // padding: 2px;
-        border-radius: 5px;
+        border-radius: 10px;
         display:flex;
         flex-direction: row;
         justify-content: space-between;
@@ -249,8 +249,8 @@ p, h1, span, div {
             // width: 30%;
             // height: fit-content;
             // width: fit-content;
-            // border: solid black 2.5px;
-            border-radius: 5px;
+            // border: solid black 3.5px;
+            border-radius: 10px;
         }
         .connector-symbol {
             min-width: 40px;
@@ -264,7 +264,7 @@ p, h1, span, div {
             // width: fit-content;
             // border-top: solid black 2.5px;
             // border-bottom: solid black 2.5px;
-            // border-radius: 5px;
+            // border-radius: 10px;
         }
         .connector-right {
             padding: 5px;
@@ -276,8 +276,8 @@ p, h1, span, div {
             // width: 30%;
             // height: fit-content;
             // width: fit-content;
-            // border: solid black 2.5px;
-            border-radius: 5px;
+            // border: solid black 3.5px;
+            border-radius: 10px;
         }
 
         // .connector-output {
@@ -312,7 +312,7 @@ p, h1, span, div {
     display: inline-block;
     padding: 5px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #machine {
@@ -321,7 +321,7 @@ p, h1, span, div {
     display: inline-block;
     padding: 5px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 

@@ -187,8 +187,8 @@ p, h1, span, div {
 }
 .connector .connector-wrapper {
   padding: 5px;
-  border: solid black 2.5px;
-  border-radius: 5px;
+  border: solid black 3.5px;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -208,7 +208,7 @@ p, h1, span, div {
   min-height: 50px;
   width: auto;
   height: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .connector .connector-wrapper .connector-symbol {
   min-width: 40px;
@@ -223,7 +223,7 @@ p, h1, span, div {
   min-height: 50px;
   width: auto;
   height: auto;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 #atom {
@@ -232,7 +232,7 @@ p, h1, span, div {
   display: inline-block;
   padding: 5px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 #machine {
@@ -241,7 +241,7 @@ p, h1, span, div {
   display: inline-block;
   padding: 5px;
   margin: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 750px) {
