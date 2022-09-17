@@ -1,0 +1,25 @@
+{
+  "name": "hackcmu_2022",
+  "version": "0.0.1",
+  "description": "project for 2022 CMU Hackathon!",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "bent": "~7.3.12",
+    "cors": "^2.8.5",
+    "express": "~4.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aresh-P/HackCMU_2022.git"
+  },
+  "author": "ivanbur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aresh-P/HackCMU_2022/issues"
+  },
+  "homepage": "https://github.com/Aresh-P/HackCMU_2022#readme"
+}
