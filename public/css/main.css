@@ -53,7 +53,7 @@ body {
   margin: 0;
 }
 
-p, h1, span {
+p, h1, span, div {
   padding: 0;
   margin: 0;
 }
@@ -64,105 +64,135 @@ p, h1, span {
       -ms-user-select: none;
           user-select: none;
   height: 10vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: solid black;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid black 2.5px;
 }
-
 #navbar #nav-container #logo-text-wrapper {
   padding: 10px 50px 10px 50px;
   margin: 0;
 }
-
 #navbar #nav-container #logo-text-wrapper h1 {
   margin: 0;
   padding: 0;
 }
-
 #navbar #nav-container #logo-text-wrapper h1 .red-p {
   color: var(--red);
 }
-
 #navbar #nav-container #logo-text-wrapper h1 .blue-p {
   color: var(--blue);
 }
-
 #navbar #nav-container #logo-image-wrapper {
   height: 100%;
   padding: 5px 50px 5px 50px;
 }
-
 #navbar #nav-container #logo-image-wrapper #logo-image {
   height: 100%;
 }
 
 #content {
+  overflow: hidden;
   height: 90vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
-
 #content #givens-wrapper {
   height: 100%;
   width: 70vw;
-  border-right: solid black;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  border-right: solid black 2.5px;
+  justify-content: center;
 }
-
 #content #givens-wrapper #givens-title-wrapper {
   padding: 5px 50px 5px 50px;
   text-align: center;
   height: 10%;
 }
-
 #content #givens-wrapper #givens-playground {
   height: 90%;
 }
-
 #content #goals-wrapper {
   height: 100%;
   width: 30vw;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 #content #goals-wrapper #goals-title-wrapper {
   padding: 5px 50px 5px 50px;
   text-align: center;
   height: 10%;
 }
-
 #content #goals-wrapper #goals-playground {
   height: 90%;
 }
 
-#box {
-  width: 25%;
-  min-height: 6.5em;
-  background-color: #29e;
-  color: white;
-  border-radius: 0.75em;
-  padding: 4%;
-  -ms-touch-action: none;
-      touch-action: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+.atom {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  touch-action: none;
 }
-/*# sourceMappingURL=main.css.map */
+.atom .atom-text-wrapper .atom-text {
+  font-size: 25px;
+  line-height: 40px;
+  padding: 0;
+  margin: 0;
+  cursor: move;
+}
+
+.atom-active .atom-text-wrapper .atom-text {
+  color: #E93200 !important;
+}
+
+.and {
+  display: inline-block;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  touch-action: none;
+}
+.and .and-wrapper {
+  border: solid black 2.5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.and .and-wrapper .and-left {
+  min-width: 50px;
+  min-height: 50px;
+  width: auto;
+  height: auto;
+  border: dotted black 2.5px;
+  border-radius: 5px;
+}
+.and .and-wrapper .and-symbol {
+  min-width: 40px;
+  min-height: 40px;
+  width: auto;
+  height: auto;
+  border-top: dotted black 2.5px;
+  border-bottom: dotted black 2.5px;
+  border-radius: 5px;
+}
+.and .and-wrapper .and-right {
+  min-width: 50px;
+  min-height: 50px;
+  width: auto;
+  height: auto;
+  border: dotted black 2.5px;
+  border-radius: 5px;
+}/*# sourceMappingURL=main.css.map */
