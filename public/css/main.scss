@@ -417,7 +417,7 @@ p, h1, span, div {
     // justify-content: space-around;
 }
 
-.level-card, .coming-soon-card {
+.level-card, .locked-level-card, .coming-soon-card {
     // transition: transform cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
     transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
     border: solid black 5px;
@@ -435,9 +435,38 @@ p, h1, span, div {
     background-repeat: no-repeat;
 
     user-select: none;
+    .locked {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        
+        // vertical-align: middle;
+        .locked-img {
+            // transition: all ease-out .5s;
+            margin-top: 14px;
+            // position: relative;
+            // height: 100%;
+            // width: 100%;
+            max-width:60%;
+            max-height:60%;
+            // display: inline-block;
+        }
+    }
 }
 
-
+.locked-level-card:hover {
+    filter: brightness(0.8);
+    .locked-img {
+        filter: brightness(0.4) !important;
+    }
+}
 
 .level-card:hover, .coming-soon-card:hover {
     transform: rotate(5deg);
@@ -446,7 +475,6 @@ p, h1, span, div {
     // filter:grayscale(1);
     filter: brightness(0.8);
 }
-
 
 
 .coming-soon-card {

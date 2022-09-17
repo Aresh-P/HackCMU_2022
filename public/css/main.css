@@ -326,7 +326,7 @@ p, h1, span, div {
   justify-content: center;
 }
 
-.level-card, .coming-soon-card {
+.level-card, .locked-level-card, .coming-soon-card {
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
   border: solid black 5px;
   border-radius: 5px;
@@ -343,6 +343,29 @@ p, h1, span, div {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.level-card .locked, .locked-level-card .locked, .coming-soon-card .locked {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.level-card .locked .locked-img, .locked-level-card .locked .locked-img, .coming-soon-card .locked .locked-img {
+  margin-top: 14px;
+  max-width: 60%;
+  max-height: 60%;
+}
+
+.locked-level-card:hover {
+  filter: brightness(0.8);
+}
+.locked-level-card:hover .locked-img {
+  filter: brightness(0.4) !important;
 }
 
 .level-card:hover, .coming-soon-card:hover {
