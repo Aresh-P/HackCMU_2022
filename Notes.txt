@@ -26,3 +26,4 @@ mouseOff ->
 Potential Ideas:
 - Add negation.
 - Ability for users to create their own levels.
+- Replace variables / connectors with the box symbols.
