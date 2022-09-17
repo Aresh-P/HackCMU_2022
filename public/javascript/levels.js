@@ -4,9 +4,13 @@ var levels = [
         // env 1
         {
             givens:
-            ['p'],
+            [
+		'p'
+	    ],
             goals:
-            ['p']
+            [
+		'p'
+	    ]
         }
     ],
     // level 2
@@ -16,14 +20,12 @@ var levels = [
             givens:
             [
                 'p',
-                {
-		    left: 'p',
-                    connect: 'imp',
-                    right: 'q'
-                }
+                ['p', 'imp', 'q']
             ],
             goals:
-            ['q']
+            [
+		'q'
+	    ]
         }
     ],
     // level 3
@@ -32,14 +34,13 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: 'p',
-                    connect: 'and',
-                    right: 'q'
-                }
+                ['p', 'and', 'q']
             ],
             goals:
-            ['p', 'q']
+            [
+		'p',
+		'q'
+	    ]
         }
     ],
     // level 4
@@ -48,24 +49,14 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: 'p',
-                    connect: 'or',
-                    right: 'q'
-                },
-                {
-                    left: 'p',
-                    connect: 'imp',
-                    right: 'r'
-                },
-                {
-                    left: 'q',
-                    connect: 'imp',
-                    right: 'r'
-                }
+                ['p', 'or', 'q'],
+                ['p', 'imp', 'r'],
+		['q', 'imp', 'r']
             ],
             goals:
-            ['r']
+            [
+		'r'
+	    ]
         }
     ],
     // level 5
@@ -73,14 +64,13 @@ var levels = [
         // env 1
         {
             givens:
-            ['p', 'q'],
+            [
+		'p',
+		'q'
+	    ],
             goals:
             [
-                {
-                    left: 'p',
-                    connect: 'and',
-                    right: 'q'
-                }
+		['p', 'and', 'q']
             ]
         }
     ],
@@ -90,29 +80,13 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: 'p',
-                    connect: 'or',
-                    right: 'q'
-                },
-                {
-                    left: 'p',
-                    connect: 'imp',
-                    right: 'r'
-                },
-                {
-                    left: 'q',
-                    connect: 'imp',
-                    right: 's'
-                }
+		['p', 'or', 'q'],
+		['p', 'imp', 'r'],
+		['q', 'imp', 's']
             ],
             goals:
             [
-                {
-                    left: 'r',
-                    connect: 'or',
-                    right: 's'
-                }
+		['r', 'or', 's']
             ]
         }
     ],
@@ -122,24 +96,12 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: 'p',
-                    connect: 'imp',
-                    right: 'q'
-                },
-                {
-                    left: 'q',
-                    connect: 'imp',
-                    right: 'r'
-                }
+		['p', 'imp', 'q'],
+		['q', 'imp', 'r']
             ],
             goals:
             [
-                {
-                    left: 'p',
-                    connect: 'imp',
-                    right: 'r'
-                }
+		['p', 'imp', 'r']
             ]
         }
     ],
@@ -149,54 +111,22 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'and',
-                        right: 'q'
-                    },
-                    connect: 'and',
-                    right: 'r'
-                }
+		[['p', 'and', 'q'], 'and', 'r']
             ],
             goals:
             [
-                {
-                    left: 'p',
-                    connect: 'and',
-                    right: {
-                        left: 'q',
-                        connect: 'and',
-                        right: 'r'
-                    }
-                }
+		['p', 'and', ['q', 'and', 'r']]
             ]
         },
         // env 2
         {
             givens:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'or',
-                        right: 'q'
-                    },
-                    connect: 'or',
-                    right: 'r'
-                }
+		[['p', 'or', 'q'], 'or', 'r']
             ],
             goals:
             [
-                {
-                    left: 'p',
-                    connect: 'or',
-                    right: {
-                        left: 'q',
-                        connect: 'or',
-                        right: 'r'
-                    }
-                }
+		['p', 'or', ['q', 'or', 'r']]
             ]
         }
     ],
@@ -206,62 +136,22 @@ var levels = [
         {
             givens:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'and',
-                        right: 'q'
-                    },
-                    connect: 'or',
-                    right: 'r'
-                }
+                [['p', 'and', 'q'], 'or', 'r']
             ],
             goals:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'or',
-                        right: 'r'
-                    },
-                    connect: 'and',
-                    right: {
-                        left: 'q',
-                        connect: 'or',
-                        right: 'r'
-                    }
-                }
+                [['p', 'or', 'r'], 'and', ['q', 'or', 'r']]
             ]
         },
         // env 2
         {
             givens:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'or',
-                        right: 'q'
-                    },
-                    connect: 'and',
-                    right: 'r'
-                }
+                [['p', 'or', 'q'], 'and', 'r']
             ],
             goals:
             [
-                {
-                    left: {
-                        left: 'p',
-                        connect: 'and',
-                        right: 'r'
-                    },
-                    connect: 'or',
-                    right: {
-                        left: 'q',
-                        connect: 'and',
-                        right: 'r'
-                    }
-                }
+                [['p', 'and', 'r'], 'or', ['q', 'and', 'r']]
             ]
         }
     ]
