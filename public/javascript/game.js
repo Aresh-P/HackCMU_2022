@@ -53,32 +53,35 @@ function dragMoveListener (event) {
     target.setAttribute('data-y', y)
 }
 
-interact('.draggable').draggable({
-    inertia: true,
-    modifiers: [
-        interact.modifiers.restrictRect({
-            restriction: 'parent',
-            endOnly: true
-        })
-    ],
-    autoScroll: false,
-    listeners: {
-        start: function (event) {
-            // let rect = event.rect;
-            // console.log(event.rect);
-            // // $(event.target).attr('data-x-revert', $(event.target).attr('data-x'));
-            // // $(event.target).attr('data-y-revert', $(event.target).attr('data-y'));
-            // $(event.target.parentElement).prepend($(event.target.outerHTML).css({position: 'absolute', top: rect.top, left: rect.left}).attr('id', 'kill'));
-        },
-        move: dragMoveListener,
-        end: function (event) {
-            // event.target.style.transform = 'translate(' + $(event.target).attr('data-x-revert') + 'px, ' + $(event.target).attr('data-y-revert') + 'px)'
-            // $(event.target).attr('data-x', $(event.target).attr('data-x-revert'));
-            // $(event.target).attr('data-y', $(event.target).attr('data-y-revert'));
-            // $('#kill').remove();
+
+function dragging () {
+    interact('.draggable').draggable({
+        inertia: true,
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: 'parent',
+                endOnly: true
+            })
+        ],
+        autoScroll: false,
+        listeners: {
+            start: function (event) {
+                // let rect = event.rect;
+                // console.log(event.rect);
+                // // $(event.target).attr('data-x-revert', $(event.target).attr('data-x'));
+                // // $(event.target).attr('data-y-revert', $(event.target).attr('data-y'));
+                // $(event.target.parentElement).prepend($(event.target.outerHTML).css({position: 'absolute', top: rect.top, left: rect.left}).attr('id', 'kill'));
+            },
+            move: dragMoveListener,
+            end: function (event) {
+                // event.target.style.transform = 'translate(' + $(event.target).attr('data-x-revert') + 'px, ' + $(event.target).attr('data-y-revert') + 'px)'
+                // $(event.target).attr('data-x', $(event.target).attr('data-x-revert'));
+                // $(event.target).attr('data-y', $(event.target).attr('data-y-revert'));
+                // $('#kill').remove();
+            }
         }
-    }
-});
+    });
+}
 
 function addClasses() {
     $('.givens-playground > *').each(function() {
