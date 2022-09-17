@@ -1,9 +1,9 @@
 class Connect {
-    constructor(name) {
-        if (name === 'and' || name === 'or' || name === 'imp') {
-            this.name = name;
+    constructor(connectStr) {
+        if (connectStr === 'and' || connectStr === 'or' || connectStr === 'imp') {
+            this.connectStr = connectStr;
         } else {
-            throw name + ' is not a valid connector.';
+            throw connectStr + ' is not a valid connector.';
         }
     }
 }

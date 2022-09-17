@@ -1,12 +1,8 @@
+// DO NOT INSTANTIATE
 class Obj {
-    constructor(x, y, element) {
-        this.x = x;
-        this.y = y;
-        this.selected = false;
-        this.element = element;
-    }
-
-    isSelected() {
-        return this.selected;
+    constructor() {
+	if (this.constructor == Obj) {
+	    throw 'Can\'t instantiate Obj, use Atom or Machine instead.';
+	}
     }
 }
