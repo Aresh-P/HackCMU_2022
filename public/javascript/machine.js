@@ -1,6 +1,6 @@
 class Machine extends Obj {
-    constructor(x, y, width, height, leftobj, rightobj, connect) {
-        super(x, y, width, height);
+    constructor(x, y, leftobj, rightobj, connect, element) {
+        super(x, y, element);
         this.leftobj = leftobj;
         this.rightobj = rightobj;
         this.connect = connect;

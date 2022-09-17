@@ -1,6 +1,6 @@
 class Atom extends Obj {
-    constructor(x, y, width, height, name) {
-        super(x, y, width, height);
+    constructor(x, y, name, element) {
+        super(x, y, element);
         this.name = name;
     }
 }
