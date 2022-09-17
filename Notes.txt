@@ -26,7 +26,7 @@ mouseOff ->
 Potential Ideas:
 - Level selector / main menu and ability to load levels from levels.js.
 - Add sounds (and potentially a different sound for completing level ten).
-- Make sure that we have a QR code for the website and see if we can remove the www. from the website link.
+- Create a QR code for the website.
 - Add negation.
 - Ability for users to create their own levels.
 - Replace variables / connectors with the box symbols.
