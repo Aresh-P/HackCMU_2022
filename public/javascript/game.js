@@ -87,7 +87,7 @@ function dragging() {
             end: function (event) {
                 // let goals = document.getElementsByClassName("goals-wrapper");
                 let givens = (event.target).parentElement;
-                console.log(givens);
+                // console.log(givens);
                 
                 let goals = $(givens.parentElement.parentElement).children(".goals-wrapper")[0];
                 // let currEnv = goals.parentElement;
@@ -101,7 +101,7 @@ function dragging() {
                 // console.log(goals);
                 // console.log(width);
                 let goalsLeft = getOffset(goals).left;
-                console.log(goalsLeft);
+                // console.log(goalsLeft);
                 if ((leftCoord + width) >= (goalsLeft * .965)) {
                 //     console.log("in GOALS!");
                     let classStr = $(event.target).attr("class");
@@ -136,14 +136,13 @@ function dragging() {
         });
 }
 
-function addClasses() {
+function addClassesAndListeners() {
     $('.givens-playground > *').each(function() {
-        this.addEventListener("dblclick", event => {
-            // console.log("Double-click detected");
-
-        })
+        // this.addEventListener("dblclick", event => {
+        //     console.log("Double-click detected");
+        // })
         let classString = $(this).attr('class');
-        if (classString.substr(0, 3) === 'imp') {
+        if (classString.substr(0, 3) === 'imp' && !$(this).children('.connector-wrapper').children('.connector-left').hasClass('inactive-constructor')) {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
     
     
@@ -168,14 +167,85 @@ function addClasses() {
                     
                     let bigwidth = $(event.target.parentElement).width();
                     let offset = getOffset(event.target);
-                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 6, left: offset.left + bigwidth + 10}).addClass('draggable'));
+                    $(event.relatedTarget.parentElement).append($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top + 5, left: offset.left + bigwidth + 10}).addClass('draggable'));
                 }
+            });
+        } else if (classString.substr(0, 3) === 'and' && !$(this).hasClass('listener')) {
+            let obj = this;
+            $(obj).addClass('listener');
+            console.log('added to and');
+
+
+
+            const delta = 6;
+            let startX;
+            let startY;
+
+            obj.addEventListener('mousedown', function (event) {
+                startX = event.pageX;
+                startY = event.pageY;
+            });
+
+            obj.addEventListener('mouseup', function (event) {
+                const diffX = Math.abs(event.pageX - startX);
+                const diffY = Math.abs(event.pageY - startY);
+
+                if (diffX < delta && diffY < delta) {
+                    // Click!
+                    console.log('testandclick');
+                    $(obj.parentElement).append($(obj).children('.connector-left').addClass('draggable'));
+                    $(obj.parentElement).append($(obj).children('.connector-right').addClass('draggable'));
+                    $(obj).remove();
+                }
+            });
+        } else if (classString.substr(0, 2) === 'or' && !$(this).hasClass('listener')) {
+            let obj = this;
+            $(obj).addClass('listener');
+  
+            document.addEventListener('click', function () {
+                let environment = obj.parentElement.parentElement.parentElement.children.indexOf(obj.parentElement.parentElement);
+                let placeholder = $(obj).children('.connector-right').addClass('draggable')[0];
+                let placeholder2 = $(obj).children('.connector-left').addClass('draggable')[0];
+                $(obj).remove();
+  
+                let string = `
+                    <div class="givens-wrapper">
+                    <div class="givens-title-wrapper">
+                        <h3 class="givens-title">
+                            Givens:
+                        </h3>
+                    </div>
+                    <div class="givens-playground">
+                `;
+                
+                for (let i = 0; i < $('.givens-playground')[environment].children.length; i++) {
+                    string += $('.givens-playground')[environment].children[i].outerHTML;
+                }
+                string += placeholder.outerHTML + '</div></div>';
+                string += `
+                  <div class="goals-wrapper">
+                  <div class="goals-title-wrapper">
+                      <h3 class="goals-title">
+                          Goals:
+                      </h3>
+                  </div>
+                  <div class="goals-playground">
+                `;
+  
+                for (let i = 0; i < $('.goals-playground')[environment].children.length; i++) {
+                  string += $('.goals-playground')[environment].children[i].outerHTML;
+                }
+  
+                string += '</div></div>'
+  
+                $('.givens-playground')[environment].appendChild(placeholder2);
+                $('#content').append('<div class="environment">' + string + '</div>')
             });
         }
     });
-}
+  }
 
 
 main();
 dragging();
-addClasses();
+addClassesAndListeners();
