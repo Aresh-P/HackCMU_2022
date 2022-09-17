@@ -1,9 +1,0 @@
-class Name {
-    constructor(name) {
-        if (name === 'P' || name === 'Q' || name === 'R' || name === 'S') {
-            this.name = name;
-        } else {
-            throw name + ' is not a valid atom name.';
-        }
-    }
-}

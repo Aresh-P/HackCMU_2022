@@ -1,4 +1,0 @@
-class And extends Machine {
-
-}
-
