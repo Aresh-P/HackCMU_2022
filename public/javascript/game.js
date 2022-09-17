@@ -32,6 +32,17 @@ let exampleenvironments = [
 
 
 
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY,
+      width: el.offsetWidth,
+      height: el.offsetHeight
+    };
+}
+
+
 
 function main() {
     currentLevel = new Level(exampleenvironments);
@@ -39,7 +50,7 @@ function main() {
 }
 
 
-function dragMoveListener (event) {
+function dragMoveListener(event) {
     var target = event.target
     // keep the dragged position in the data-x/data-y attributes
     var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx
@@ -54,7 +65,7 @@ function dragMoveListener (event) {
 }
 
 
-function dragging () {
+function dragging() {
     interact('.draggable').draggable({
         inertia: true,
         modifiers: [
@@ -85,7 +96,6 @@ function dragging () {
 
 function addClasses() {
     $('.givens-playground > *').each(function() {
-        console.log('test');
         let classString = $(this).attr('class');
         if (classString.substr(0, 3) === 'imp') {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
@@ -101,7 +111,17 @@ function addClasses() {
                 ondrop: function (event) {
                     // $(this).children('.connector-wrapper').children('.connector-left').removeClass('inactive-constructor');
     
-                    event.target.classList.remove('inactive-constructor');
+                    // event.target.classList.remove('inactive-constructor');
+                    $(event.target.parentElement).width();
+                    let newx = $(event.relatedTarget).attr('data-x') - $(event.target).width() - 20;
+                    let newy = $(event.relatedTarget).attr('data-y');
+                    event.relatedTarget.style.transform = 'translate(' + newx + 'px, ' + newy + 'px)'
+                    $(event.relatedTarget).attr('data-x', newx);
+                    $(event.relatedTarget).attr('data-y', newy);
+                    
+                    let bigwidth = $(event.target.parentElement).width();
+                    let offset = getOffset(event.target);
+                    $(event.relatedTarget.parentElement).prepend($(event.target.parentElement.lastElementChild.firstElementChild.outerHTML).css({position: 'absolute', top: offset.top, left: offset.left + bigwidth + 10}).addClass('draggable'));
                 }
             });
         }
