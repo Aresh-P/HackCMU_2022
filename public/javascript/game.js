@@ -16,7 +16,16 @@ function main() {
     let level = url.searchParams.get('level');
     currentLevel = new Level(levels[level - 1]);
     $('body').append(currentLevel.element);
-
+    if (level == 1 || level == 2) {
+        $('#gameaudio').attr('src', './assets/ost/01.mp3');
+    } else if (level >= 3 && level <= 5) {
+        $('#gameaudio').attr('src', './assets/ost/02.mp3');
+    } else if (level >= 6 && level <= 7) {
+        $('#gameaudio').attr('src', './assets/ost/03.mp3');
+    } else {
+        $('#gameaudio').attr('src', './assets/ost/04.mp3');
+    }
+    $('#gameaudio')[0].play();
 }
 
 
