@@ -112,17 +112,6 @@ var levels = [
         {
             givens:
             [
-		        [['p', 'and', 'q'], 'and', 'r']
-            ],
-            goals:
-            [
-		        ['p', 'and', ['q', 'and', 'r']]
-            ]
-        },
-        // env 2
-        {
-            givens:
-            [
 		        [['p', 'or', 'q'], 'or', 'r']
             ],
             goals:
