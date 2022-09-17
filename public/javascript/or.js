@@ -1,0 +1,3 @@
+class Or extends Machine {
+
+}

@@ -1,0 +1,3 @@
+class Implication extends Machine {
+
+}
