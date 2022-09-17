@@ -19,8 +19,8 @@ var levels = [
         {
             givens:
             [
-                'p',
-                ['p', 'imp', 'q']
+                ['p', 'imp', 'q'],
+                'p'
             ],
             goals:
             [
@@ -38,9 +38,8 @@ var levels = [
             ],
             goals:
             [
-		'p',
-		'q'
-	    ]
+            ['p','or','q']
+            ]
         }
     ],
     // level 4
@@ -51,12 +50,12 @@ var levels = [
             [
                 ['p', 'or', 'q'],
                 ['p', 'imp', 'r'],
-		['q', 'imp', 'r']
+		        ['q', 'imp', 'r']
             ],
             goals:
             [
-		'r'
-	    ]
+		        'r'
+	        ]
         }
     ],
     // level 5
@@ -65,12 +64,13 @@ var levels = [
         {
             givens:
             [
-		'p',
-		'q'
-	    ],
+                ['p', 'and', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', 'r']
+	        ],
             goals:
             [
-		['p', 'and', 'q']
+                'r'
             ]
         }
     ],
@@ -80,13 +80,13 @@ var levels = [
         {
             givens:
             [
-		['p', 'or', 'q'],
-		['p', 'imp', 'r'],
-		['q', 'imp', 's']
+                ['p', 'or', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', 's']
             ],
             goals:
             [
-		['r', 'or', 's']
+		        ['r', 'or', 's']
             ]
         }
     ],
@@ -96,12 +96,13 @@ var levels = [
         {
             givens:
             [
-		['p', 'imp', 'q'],
-		['q', 'imp', 'r']
+		        ['p', 'or', 'q'],
+                ['p', 'imp', 'r'],
+		        ['q', 'imp', 's']
             ],
             goals:
             [
-		['p', 'imp', 'r']
+		        ['r', 'or', 's']
             ]
         }
     ],
@@ -111,22 +112,11 @@ var levels = [
         {
             givens:
             [
-		[['p', 'and', 'q'], 'and', 'r']
+		        [['p', 'or', 'q'], 'or', 'r']
             ],
             goals:
             [
-		['p', 'and', ['q', 'and', 'r']]
-            ]
-        },
-        // env 2
-        {
-            givens:
-            [
-		[['p', 'or', 'q'], 'or', 'r']
-            ],
-            goals:
-            [
-		['p', 'or', ['q', 'or', 'r']]
+		        ['p', 'or', ['q', 'or', 'r']]
             ]
         }
     ],

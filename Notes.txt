@@ -27,8 +27,8 @@ Potential Ideas:
 - Level selector / main menu and ability to load levels from levels.js.
 - Level title at the top of every level.
 - Add sounds (and potentially a different sound for completing level ten).
-- Mobile debugging
-- Overlap objects, remove duplicates.
+- Mobile debugging.
+- Ensure that duplicates are removed.
 - Level completion banner with positive message and buttons to go back to the main menu and to go to the next level.
 - Add negation.
 - Ability for users to create their own levels.
