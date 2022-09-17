@@ -16,6 +16,7 @@ function main() {
     let level = url.searchParams.get('level');
     currentLevel = new Level(levels[level - 1]);
     $('body').append(currentLevel.element);
+
 }
 
 
@@ -248,11 +249,15 @@ function addClassesAndListeners() {
         // this.addEventListener("dblclick", event => {
         //     console.log("Double-click detected");
         // })
+
         let classString = $(this).attr('class');
         if (classString.substr(0, 3) === 'imp' && ($(this).hasClass('adddrop') || !$(this).children('.connector-wrapper').children('.connector-left').hasClass('inactive-constructor'))) {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
     
+
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
     
+
             let leftindex = classString.lastIndexOf('left-');
             let spaceindex = classString.indexOf(' ', leftindex);
             let acceptstr = '.' + classString.substr(leftindex + 5, spaceindex - (leftindex + 5));
@@ -284,6 +289,7 @@ function addClassesAndListeners() {
             $(obj).addClass('listener');
 
 
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
 
             const delta = 6;
             let startX;
@@ -313,6 +319,8 @@ function addClassesAndListeners() {
             let obj = this;
             $(obj).addClass('listener');
 
+
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
 
             const delta = 6;
             let startX;
