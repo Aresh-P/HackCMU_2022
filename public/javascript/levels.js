@@ -129,6 +129,64 @@ var levels = [
                     left: 'p',
                     connect: 'imp',
                     right: 'r'
+                },
+                {
+                    left: 'q',
+                    connect: 'imp',
+                    right: 's'
+                }
+            ],
+            goals:
+            [
+                {
+                    left: 'r',
+                    connect: 'or',
+                    right: 's'
+                }
+            ]
+        }
+    ],
+    // level 7
+    [
+        // env 1
+        {
+            givens:
+            [
+                {
+                    left: 'p',
+                    connect: 'imp',
+                    right: 'q'
+                },
+                {
+                    left: 'q',
+                    connect: 'imp',
+                    right: 'r'
+                }
+            ],
+            goals:
+            [
+                {
+                    left: 'p',
+                    connect: 'imp',
+                    right: 'r'
+                }
+            ]
+        }
+    ],
+    // level 8
+    [
+        // env 1
+        {
+            givens:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'and',
+                        right: 'q'
+                    },
+                    connect: 'and',
+                    right: 'r'
                 }
             ],
             goals:
@@ -136,9 +194,105 @@ var levels = [
                 {
                     left: 'p',
                     connect: 'and',
-                    right: 'q'
+                    right: {
+                        left: 'q',
+                        connect: 'and',
+                        right: 'r'
+                    }
+                }
+            ],
+        },
+        // env 2
+        {
+            givens:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'or',
+                        right: 'q'
+                    },
+                    connect: 'or',
+                    right: 'r'
+                }
+            ],
+            goals:
+            [
+                {
+                    left: 'p',
+                    connect: 'or',
+                    right: {
+                        left: 'q',
+                        connect: 'or',
+                        right: 'r'
+                    }
+                }
+            ],
+        },
+    ],
+    // level 9
+    [
+        // env 1
+        {
+            givens:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'and',
+                        right: 'q'
+                    },
+                    connect: 'or',
+                    right: 'r'
+                }
+            ],
+            goals:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'or',
+                        right: 'r'
+                    },
+                    connect: 'and',
+                    right: {
+                        left: 'q',
+                        connect: 'or',
+                        right: 'r'
+                    }
+                }
+            ],
+        },
+        // env 2
+        {
+            givens:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'or',
+                        right: 'q'
+                    },
+                    connect: 'and',
+                    right: 'r'
+                }
+            ],
+            goals:
+            [
+                {
+                    left: {
+                        left: 'p',
+                        connect: 'and',
+                        right: 'r'
+                    },
+                    connect: 'or',
+                    right: {
+                        left: 'q',
+                        connect: 'and',
+                        right: 'r'
+                    }
                 }
             ]
         }
-    ],
+    ]
 ];
