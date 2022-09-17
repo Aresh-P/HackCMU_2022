@@ -154,5 +154,48 @@ var levels = [
                 [['p', 'and', 'r'], 'or', ['q', 'and', 'r']]
             ]
         }
+    ],
+    // level 10
+    [
+        // env 1
+        {
+            givens:
+            [
+                ['p', 'imp', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', ['r', 'imp', ['s', 'or', 't']]],
+                ['s', 'imp', 'p'], 
+                ['t', 'imp', 'p']
+            ],
+            goals:
+            [
+                ['p', 'imp', ['s', 'or', 't']], 
+                ['s', 'imp', 'q'], 
+                ['t', 'imp', 'q'], 
+                ['s', 'imp', 'r'], 
+                ['t', 'imp', 'r'],  
+                ['r', 'imp', ['q', 'imp', 'p']]
+            ]
+        },
+        // env 2
+        {
+            givens:
+            [
+                ['p', 'imp', ['s', 'or', 't']], 
+                ['s', 'imp', 'q'], 
+                ['t', 'imp', 'q'], 
+                ['s', 'imp', 'r'], 
+                ['t', 'imp', 'r'],  
+                ['r', 'imp', ['q', 'imp', 'p']]
+            ],
+            goals:
+            [
+                ['p', 'imp', 'q'],
+                ['p', 'imp', 'r'],
+                ['q', 'imp', ['r', 'imp', ['s', 'or', 't']]],
+                ['s', 'imp', 'p'], 
+                ['t', 'imp', 'p']
+            ]
+        }
     ]
 ];
