@@ -10,9 +10,9 @@ class Atom extends Obj {
 		throw name+' is an invalid atom name';
 	}
 	this.element = $(`
-		<div class="atom ` + lowerCase + `-atom">
+		<div class="` + lowerCase + ` atom">
 			<div class="atom-text-wrapper">
-				<p class="atom-text">
+				<p class="atom-text ` + lowerCase + `-color">
 					` + lowerCase + `
 				</p>
 			</div>

@@ -1,5 +1,8 @@
 class Environment {
     constructor(data) {
+        this.givens = [];
+        this.goals = [];
+
         let givensstring = `
             <div class="givens-wrapper">
                 <div class="givens-title-wrapper">
@@ -13,29 +16,31 @@ class Environment {
         //  </div>
 
         let goalsstring = `
-            <div id="goals-wrapper">
-                 <div id="goals-title-wrapper">
-                     <h3 id="goals-title">
+            <div class="goals-wrapper">
+                 <div class="goals-title-wrapper">
+                     <h3 class="goals-title">
                          Goals:
                      </h3>
                  </div>
-                 <div id="goals-playground">
+                 <div class="goals-playground">
         `;
         //      </div>
         //  </div>
 
         for (let i = 0; i < data.givens.length; i++) {
             let obj = createobj(data.givens[i]);
-            obj.element.addClass('draggable');
+            $(obj.element).addClass('draggable');
             givensstring += obj.element.outerHTML;
+            this.givens.push(obj);
         }
 
         givensstring += '</div></div>';
 
         for (let i = 0; i < data.goals.length; i++) {
             let obj = createobj(data.goals[i]);
-            obj.element.addClass('draggable');
+            $(obj.element).addClass('inactive-goal');
             goalsstring += obj.element.outerHTML;
+            this.goals.push(obj);
         }
 
         goalsstring += '</div></div>';

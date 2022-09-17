@@ -3,6 +3,9 @@
 :root {
     --blue: #3737F4;
     --red: #E93200;
+    --green: #77B757;
+    --orange: #ECA139;
+    --purple: ;
 }
 
 
@@ -87,7 +90,7 @@ p, h1, span, div {
     margin: 0;
 
     .environment {
-        // overflow: hidden;
+        overflow: hidden;
     
         display: flex;
         flex-direction: row;
@@ -118,8 +121,12 @@ p, h1, span, div {
     
             .givens-playground {
                 height: 90%;
-                margin: 0 0 0 50px;
+                margin: 0 5px 0 50px;
+                > * {
+                    position: absolute;
+                }
             }
+
         }
     
         .goals-wrapper {
@@ -138,7 +145,7 @@ p, h1, span, div {
             
             .goals-playground {
                 height: 90%;
-                // margin: 0 50px 0 0;
+                margin: 0 0 0 50px;
             }
         }
     }
@@ -152,10 +159,11 @@ p, h1, span, div {
 // }
 
 .atom {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    width: 40px;
+    width: 30px;
     height: 40px;
     .atom-text-wrapper {
         .atom-text {
@@ -163,6 +171,7 @@ p, h1, span, div {
             line-height: 40px;
             padding: 0;
             margin: 0;  
+            margin-top: -4px;
             cursor: move; 
             user-select: none;
         }
@@ -205,10 +214,13 @@ p, h1, span, div {
 
 
 .connector {
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: white;
     display: inline-block;
     height: fit-content;
     width: fit-content;
     .connector-wrapper {
+
         padding: 5px;
         border: solid black 3.5px;
         // padding: 2px;
@@ -221,7 +233,6 @@ p, h1, span, div {
         width: 100%;
         height: fit-content;
         width: fit-content;
-        // vertical-align: middle;
 
         // .connector-input {
         //     // height: 100%;
@@ -234,6 +245,7 @@ p, h1, span, div {
         .connector-left {
             padding: 5px;
             // align-items: center;
+            text-align: center;
             // display: flex;
             // padding: auto;
             // display: inline-block;
@@ -241,7 +253,7 @@ p, h1, span, div {
             // .atom {
             //     margin: auto;
             // }
-            min-width: 50px;
+            min-width: 40px;
             min-height: 50px;
             width: auto;
             height: auto;
@@ -257,7 +269,11 @@ p, h1, span, div {
             min-height: 40px;
             width: auto;
             height: auto;
-            padding: 8px;
+            padding: 6px 2px 6px 2px;
+
+            svg {
+                max-height: 30px;
+            }
             // height: 100%;
             // width: 30%;
             // height: fit-content;
@@ -267,8 +283,9 @@ p, h1, span, div {
             // border-radius: 10px;
         }
         .connector-right {
+            text-align: center;
             padding: 5px;
-            min-width: 50px;
+            min-width: 40px;
             min-height: 50px;
             width: auto;
             height: auto;
@@ -288,6 +305,43 @@ p, h1, span, div {
     }
     touch-action: none;
 }
+
+.implies-symbol {
+    min-width: 44px !important;
+    padding: 6px 2px 6px 2px !important;
+}
+
+
+.inactive-goal {
+    filter: grayscale(1) !important;
+}
+
+.inactive-constructor {
+    // border-color: gray !important;
+    filter: grayscale(1) !important;
+    border-style: dotted !important;
+    // border-width: 0;
+    // color: gray !important;
+    // background: white;
+    // mix-blend-mode: saturation;
+}
+
+.p-color {
+    color: var(--blue);
+}
+
+.q-color {
+    color: var(--red);
+}
+
+.r-color {
+    color: var(--green);
+}
+
+.s-color {
+    color: var(--orange);
+}
+
 // #box1 {
 //     width: 40px;
 //     height: 40px;

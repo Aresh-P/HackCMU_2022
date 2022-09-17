@@ -1,6 +1,9 @@
 :root {
   --blue: #3737F4;
   --red: #E93200;
+  --green: #77B757;
+  --orange: #ECA139;
+  --purple: ;
 }
 
 h1 {
@@ -103,6 +106,7 @@ p, h1, span, div {
   margin: 0;
 }
 #content .environment {
+  overflow: hidden;
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -129,7 +133,10 @@ p, h1, span, div {
 }
 #content .environment .givens-wrapper .givens-playground {
   height: 90%;
-  margin: 0 0 0 50px;
+  margin: 0 5px 0 50px;
+}
+#content .environment .givens-wrapper .givens-playground > * {
+  position: absolute;
 }
 #content .environment .goals-wrapper {
   height: 100%;
@@ -149,13 +156,15 @@ p, h1, span, div {
 }
 #content .environment .goals-wrapper .goals-playground {
   height: 90%;
+  margin: 0 0 0 50px;
 }
 
 .atom {
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  width: 40px;
+  width: 30px;
   height: 40px;
   touch-action: none;
 }
@@ -164,6 +173,7 @@ p, h1, span, div {
   line-height: 40px;
   padding: 0;
   margin: 0;
+  margin-top: -4px;
   cursor: move;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -176,6 +186,8 @@ p, h1, span, div {
 }
 
 .connector {
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: white;
   display: inline-block;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -204,7 +216,8 @@ p, h1, span, div {
 }
 .connector .connector-wrapper .connector-left {
   padding: 5px;
-  min-width: 50px;
+  text-align: center;
+  min-width: 40px;
   min-height: 50px;
   width: auto;
   height: auto;
@@ -215,15 +228,49 @@ p, h1, span, div {
   min-height: 40px;
   width: auto;
   height: auto;
-  padding: 8px;
+  padding: 6px 2px 6px 2px;
+}
+.connector .connector-wrapper .connector-symbol svg {
+  max-height: 30px;
 }
 .connector .connector-wrapper .connector-right {
+  text-align: center;
   padding: 5px;
-  min-width: 50px;
+  min-width: 40px;
   min-height: 50px;
   width: auto;
   height: auto;
   border-radius: 10px;
+}
+
+.implies-symbol {
+  min-width: 44px !important;
+  padding: 6px 2px 6px 2px !important;
+}
+
+.inactive-goal {
+  filter: grayscale(1) !important;
+}
+
+.inactive-constructor {
+  filter: grayscale(1) !important;
+  border-style: dotted !important;
+}
+
+.p-color {
+  color: var(--blue);
+}
+
+.q-color {
+  color: var(--red);
+}
+
+.r-color {
+  color: var(--green);
+}
+
+.s-color {
+  color: var(--orange);
 }
 
 #atom {

@@ -3,6 +3,9 @@ class Machine extends Obj {
 	super();
 	this.leftobj = leftobj;
 	let symbol;
+	let connectorClass = '';
+	let leftClass = leftobj.element.classList[0];
+	let rightClass = rightobj.element.classList[0];
 	switch (connect) {
 		case 'and':
 			symbol = $(`
@@ -20,19 +23,23 @@ class Machine extends Obj {
 			symbol = $(`
 			<svg id="implies-svg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 708.65 433.85"><path d="M555.88,617.13a38.51,38.51,0,0,1-28.68-64.2L629.48,438.72H84a38.51,38.51,0,0,1,0-77H629.48L527.2,247.48a38.51,38.51,0,1,1,57.37-51.38L744.35,374.52l0,0h0l0,0h0s0,0,0,0l0,0,0,0h0l0,0h0a38.52,38.52,0,0,1,1.91,48.56c-.74,1-1.52,1.93-2.34,2.84L584.57,604.31A38.37,38.37,0,0,1,555.88,617.13Z" transform="translate(-45.52 -183.29)"/></svg>
 			`)[0];
+			connectorClass = "implies-symbol"
 			break;
 		
 		default:
 			throw connect+' is an invalid machine connect';
 	}
 
+	let className = connect + "\(" + leftClass + "\," + rightClass + "\)";
+
+	// console.log(leftClass);
 	this.element = $(`
-		<div class="connector">
+		<div class="` + className + ` connector left-` + leftClass + `">
 			<div class="connector-wrapper">
 				<div class="connector-left">
 					` + (leftobj.element).outerHTML + `
 				</div>
-				<div class="connector-symbol">
+				<div class="connector-symbol ` + connectorClass + `">
 					` + symbol.outerHTML + `
 				</div>
 				<div class="connector-right">
