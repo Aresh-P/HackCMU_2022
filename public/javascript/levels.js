@@ -4,13 +4,9 @@ var levels = [
         // env 1
         {
             givens:
-            [
-                'p'
-            ],
+            ['p'],
             goals:
-            [
-                'p'
-            ]
+            ['p']
         }
     ],
     // level 2
@@ -21,15 +17,13 @@ var levels = [
             [
                 'p',
                 {
-                    left: 'p',
+		    left: 'p',
                     connect: 'imp',
                     right: 'q'
                 }
             ],
             goals:
-            [
-                'q'
-            ]
+            ['q']
         }
     ],
     // level 3
@@ -45,9 +39,7 @@ var levels = [
                 }
             ],
             goals:
-            [
-                'p', 'q'
-            ]
+            ['p', 'q']
         }
     ],
     // level 4
@@ -73,9 +65,7 @@ var levels = [
                 }
             ],
             goals:
-            [
-                'r'
-            ]
+            ['r']
         }
     ],
     // level 5
@@ -83,27 +73,7 @@ var levels = [
         // env 1
         {
             givens:
-            [
-                {
-                    left: 'p',
-                    connect: 'and',
-                    right: 'q'
-                }
-            ],
-            goals:
-            [
-                'p', 'q'
-            ]
-        }
-    ],
-    // level 5
-    [
-        // env 1
-        {
-            givens:
-            [
-                'p','q'
-            ],
+            ['p', 'q'],
             goals:
             [
                 {
@@ -200,7 +170,7 @@ var levels = [
                         right: 'r'
                     }
                 }
-            ],
+            ]
         },
         // env 2
         {
@@ -227,8 +197,8 @@ var levels = [
                         right: 'r'
                     }
                 }
-            ],
-        },
+            ]
+        }
     ],
     // level 9
     [
@@ -261,7 +231,7 @@ var levels = [
                         right: 'r'
                     }
                 }
-            ],
+            ]
         },
         // env 2
         {
