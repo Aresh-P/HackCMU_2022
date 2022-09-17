@@ -91,8 +91,9 @@ function addClasses() {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
     
     
-            let acceptstr = '.' + classString.substr(classString.lastIndexOf('left-') + 5);
-            console.log($(this).children('.connector-wrapper').children('.connector-left')[0]);
+            let leftindex = classString.lastIndexOf('left-');
+            let spaceindex = classString.indexOf(' ', leftindex);
+            let acceptstr = '.' + classString.substr(leftindex + 5, spaceindex - (leftindex + 5));
             interact($(this).children('.connector-wrapper').children('.connector-left')[0]).dropzone({
                 accept: acceptstr,
                 overlap: 0.75,
