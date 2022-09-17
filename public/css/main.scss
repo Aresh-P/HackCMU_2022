@@ -43,6 +43,7 @@ p, h1, span, div {
             // padding: 0;
             // margin: 0;
             h1 {
+                white-space: nowrap;
                 // font-size: 80%;
                 margin: 0;
                 padding: 0;
@@ -56,12 +57,15 @@ p, h1, span, div {
         }
         
         #logo-image-wrapper {
+            // position: absolute;
+            // top: 5px;
+            // right: 
             height: 100%;
             padding: 5px 50px 5px 50px;
             #logo-image {
                 // height: 2.5em;
                 // margin-top: 10px;
-                height: 100%
+                height: 205%
             }
         }
 
@@ -70,51 +74,72 @@ p, h1, span, div {
 }
 
 
+.environment-added {
+    height: 60vh !important;
+}
+
 #content {
-    overflow: hidden;
-    height: 90vh;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
-    #givens-wrapper {
+    padding: 0;
+    margin: 0;
+
+    .environment {
         // overflow: hidden;
-        height: 100%;
-        width: 70vw;
-        border-right: solid black 2.5px;
+    
+        display: flex;
+        flex-direction: row;
 
-        justify-content: center;
+        padding: 0;
+        margin: 0;
 
-        #givens-title-wrapper {
-            padding: 5px 50px 5px 50px;
-            text-align: center;
-            // #givens-title {
-                
-            // }
-            height: 10%;
+        height: 90vh;
+
+        border-bottom: solid black 2.5px;
+    
+        .givens-wrapper {
+            // overflow: hidden;
+            height: 100%;
+            width: 70vw;
+            border-right: solid black 2.5px;
+    
+            justify-content: center;
+    
+            .givens-title-wrapper {
+                padding: 10px 50px 5px 50px;
+                text-align: left;
+                .givens-title {
+                    user-select: none;
+                }
+                height: 10%;
+            }
+    
+            .givens-playground {
+                height: 90%;
+                margin: 0 0 0 50px;
+            }
         }
-
-        #givens-playground {
-            height: 90%;
-        }
-    }
-
-    #goals-wrapper {
-        #goals-title-wrapper {
-            padding: 5px 50px 5px 50px;
-            text-align: center;
-            // #goals-title {
-                
-            // }
-            height: 10%;
-        }
-        height: 100%;
-        width: 30vw;
-
-        justify-content: center;        
-        
-        #goals-playground {
-            height: 90%;
+    
+        .goals-wrapper {
+            .goals-title-wrapper {
+                padding: 10px 50px 5px 50px;
+                text-align:left;
+                .goals-title {
+                    user-select: none;
+                }
+                height: 10%;
+            }
+            height: 100%;
+            width: 30vw;
+    
+            justify-content: center;        
+            
+            .goals-playground {
+                height: 90%;
+                // margin: 0 50px 0 0;
+            }
         }
     }
 }
@@ -130,25 +155,21 @@ p, h1, span, div {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    // background-color: gray;
     width: 40px;
     height: 40px;
     .atom-text-wrapper {
         .atom-text {
-            font-size: 25px;
+            font-size: 40px;
             line-height: 40px;
             padding: 0;
             margin: 0;  
             cursor: move; 
+            user-select: none;
         }
-        // .atom-text:active {
-        //     cursor: grabbing;
-        //     cursor: -moz-grabbing;
-        //     cursor: -webkit-grabbing;
-        // }
     }
     touch-action: none;
 }
+
 
 .atom-active {
     .atom-text-wrapper {
@@ -183,13 +204,15 @@ p, h1, span, div {
 // }
 
 
-.and {
+.connector {
     display: inline-block;
     height: fit-content;
     width: fit-content;
-    .and-wrapper {
-        border: solid black 2.5px;
-        border-radius: 5px;
+    .connector-wrapper {
+        padding: 5px;
+        border: solid black 3.5px;
+        // padding: 2px;
+        border-radius: 10px;
         display:flex;
         flex-direction: row;
         justify-content: space-between;
@@ -200,13 +223,16 @@ p, h1, span, div {
         width: fit-content;
         // vertical-align: middle;
 
-        // .and-input {
-        //     height: 100%;
+        // .connector-input {
+        //     // height: 100%;
         //     width: 10%;
-        //     background-color: black;
+        //     // background-color: black;
+        //     // width: auto;
+        //     height: auto;
         // }
 
-        .and-left {
+        .connector-left {
+            padding: 5px;
             // align-items: center;
             // display: flex;
             // padding: auto;
@@ -223,25 +249,25 @@ p, h1, span, div {
             // width: 30%;
             // height: fit-content;
             // width: fit-content;
-            border: dotted black 2.5px;
-            border-radius: 5px;
-            
-            // padding: auto;
+            // border: solid black 3.5px;
+            border-radius: 10px;
         }
-        .and-symbol {
+        .connector-symbol {
             min-width: 40px;
             min-height: 40px;
             width: auto;
             height: auto;
+            padding: 8px;
             // height: 100%;
             // width: 30%;
             // height: fit-content;
             // width: fit-content;
-            border-top: dotted black 2.5px;
-            border-bottom: dotted black 2.5px;
-            border-radius: 5px;
+            // border-top: solid black 2.5px;
+            // border-bottom: solid black 2.5px;
+            // border-radius: 10px;
         }
-        .and-right {
+        .connector-right {
+            padding: 5px;
             min-width: 50px;
             min-height: 50px;
             width: auto;
@@ -250,11 +276,11 @@ p, h1, span, div {
             // width: 30%;
             // height: fit-content;
             // width: fit-content;
-            border: dotted black 2.5px;
-            border-radius: 5px;
+            // border: solid black 3.5px;
+            border-radius: 10px;
         }
 
-        // .and-output {
+        // .connector-output {
         //     height: 100%;
         //     width: 10%;
         //     background-color: gray;
@@ -286,7 +312,7 @@ p, h1, span, div {
     display: inline-block;
     padding: 5px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #machine {
@@ -295,5 +321,12 @@ p, h1, span, div {
     display: inline-block;
     padding: 5px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
+
+
+@media only screen and (max-width: 750px) {
+    #logo-image {
+        height: 100% !important;
+    }
+}   
