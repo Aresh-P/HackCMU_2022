@@ -1,3 +1,0 @@
-class Implication extends Machine {
-
-}
