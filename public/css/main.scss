@@ -118,7 +118,7 @@ p, h1, span, div {
     
             .givens-playground {
                 height: 90%;
-                margin: 0 0 0 50px;
+                margin: 0 5px 0 50px;
             }
         }
     
@@ -155,7 +155,7 @@ p, h1, span, div {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    width: 40px;
+    width: 30px;
     height: 40px;
     .atom-text-wrapper {
         .atom-text {
@@ -221,7 +221,6 @@ p, h1, span, div {
         width: 100%;
         height: fit-content;
         width: fit-content;
-        // vertical-align: middle;
 
         // .connector-input {
         //     // height: 100%;
@@ -234,6 +233,7 @@ p, h1, span, div {
         .connector-left {
             padding: 5px;
             // align-items: center;
+            text-align: center;
             // display: flex;
             // padding: auto;
             // display: inline-block;
@@ -241,7 +241,7 @@ p, h1, span, div {
             // .atom {
             //     margin: auto;
             // }
-            min-width: 50px;
+            min-width: 40px;
             min-height: 50px;
             width: auto;
             height: auto;
@@ -257,7 +257,11 @@ p, h1, span, div {
             min-height: 40px;
             width: auto;
             height: auto;
-            padding: 8px;
+            padding: 6px 2px 6px 2px;
+
+            svg {
+                max-height: 30px;
+            }
             // height: 100%;
             // width: 30%;
             // height: fit-content;
@@ -267,8 +271,9 @@ p, h1, span, div {
             // border-radius: 10px;
         }
         .connector-right {
+            text-align: center;
             padding: 5px;
-            min-width: 50px;
+            min-width: 40px;
             min-height: 50px;
             width: auto;
             height: auto;
@@ -288,6 +293,12 @@ p, h1, span, div {
     }
     touch-action: none;
 }
+
+.implies-symbol {
+    min-width: 44px !important;
+    padding: 6px 2px 6px 2px !important;
+}
+
 // #box1 {
 //     width: 40px;
 //     height: 40px;

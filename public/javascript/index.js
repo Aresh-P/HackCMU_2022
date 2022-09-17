@@ -104,6 +104,26 @@ let expr = new Machine(
 expr.element.classList.add("draggable");
 givens.innerHTML = expr.element.outerHTML;
 
+let expr2 = new Machine(
+	    new Machine (
+		new Atom('P'),
+		'and',
+		new Atom('Q'),
+	    ),
+	    'imp',
+	    new Machine(
+		new Atom('R'),
+		'or',
+		new Atom('S'),
+	    )
+);
+expr2.element.classList.add("draggable");
+// givens.innerHTML = expr.element.outerHTML;
+
+console.log(expr.element.outerHTML == expr2.element.outerHTML);
+console.log(expr.element.classList);
+console.log(expr.element.classList[0]);
+
 
 // function getOffset(el) {
 //     const rect = el.getBoundingClientRect();
