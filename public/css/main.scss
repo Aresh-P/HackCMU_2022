@@ -520,7 +520,7 @@ p, h1, span, div {
             margin: 0;
             flex-direction: column !important;
             justify-content: center !important;
-            .level-card {
+            .level-card, .locked-level-card {
                 align-self: center !important;
             }
         }

@@ -409,7 +409,7 @@ p, h1, span, div {
     flex-direction: column !important;
     justify-content: center !important;
   }
-  .level-grid .level-row .level-card {
+  .level-grid .level-row .level-card, .level-grid .level-row .locked-level-card {
     align-self: center !important;
   }
   .coming-soon-card {
