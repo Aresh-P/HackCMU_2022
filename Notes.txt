@@ -28,7 +28,7 @@ Potential Ideas:
 - Level title at the top of every level.
 - Add sounds (and potentially a different sound for completing level ten).
 - Mobile debugging
-- Overlap objects, remove duplicates.
+- Ensure givens don't overlap, remove duplicates.
 - Level completion banner with positive message and buttons to go back to the main menu and to go to the next level.
 - Add negation.
 - Ability for users to create their own levels.
