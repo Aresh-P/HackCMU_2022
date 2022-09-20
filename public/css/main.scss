@@ -508,6 +508,13 @@ p, h1, span, div {
         color: unset;
     }
 }
+
+#and-credits {
+    height: 15px;
+    // width: 40px;
+    margin-bottom: 5px;
+    display: inline-block;
+}
 .red {
     color: var(--red)
 }
