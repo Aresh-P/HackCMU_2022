@@ -401,9 +401,10 @@ p, h1, span, div {
     height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
 }
 .level-grid {
+    margin-top: 65px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -492,6 +493,34 @@ p, h1, span, div {
 
 }
 
+#made-by { 
+    // position: absolute;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif; 
+    font-size: 20px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 20px; 
+    a {
+        text-decoration: none;
+        color: unset;
+    }
+}
+.red {
+    color: var(--red)
+}
+.blue {
+    color: var(--blue)
+}
+.orange {
+    color: var(--orange)
+}
+.green {
+    color: var(--green)
+}
+
 @media only screen and (max-width: 750px) {
     #logo-image {
         height: 100% !important;
@@ -511,6 +540,7 @@ p, h1, span, div {
     }
 
     .level-grid {
+        margin-top: 0!important;
         display:flex !important;
         flex-direction: column !important;
         justify-content: center !important;
@@ -544,4 +574,14 @@ p, h1, span, div {
     .goals-title-wrapper, .givens-title-wrapper  {
         padding: 10px 10px 10px 20px !important;
     }
+
+    #last-row {
+        margin-bottom: 25px !important;
+    }
+    #made-by { 
+        margin-left: 0 !important;
+        text-align: center;
+    }
 }   
+
+
