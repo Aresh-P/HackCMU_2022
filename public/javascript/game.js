@@ -272,8 +272,10 @@ function addClassesAndListeners() {
             $(this).children('.connector-wrapper').children('.connector-left').addClass('inactive-constructor');
             $(this).removeClass('adddrop');
     
-
-            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            if (!$(this).css('bottom')) {
+                $(this).css({top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            }
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8});
     
 
             let leftindex = classString.lastIndexOf('left-');
@@ -308,7 +310,10 @@ function addClassesAndListeners() {
             $(obj).addClass('listener');
 
 
-            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            if (!$(this).css('bottom')) {
+                $(this).css({top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            }
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8});
 
             const delta = 6;
             let startX;
@@ -339,7 +344,10 @@ function addClassesAndListeners() {
             $(obj).addClass('listener');
 
 
-            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8, top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            if (!$(this).css('bottom')) {
+                $(this).css({top: Math.random() * $('.givens-playground').height() * 0.5 + 50});
+            }
+            $(this).css({left: Math.random() * $('.givens-playground').width() * 0.8});
 
             const delta = 6;
             let startX;
@@ -362,7 +370,7 @@ function addClassesAndListeners() {
                         let environment = Array.prototype.indexOf.call(obj.parentElement.parentElement.parentElement.children, obj.parentElement.parentElement);
                         console.log(environment);
                         let placeholder = $(obj.firstElementChild.firstElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
-                        let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable')[0];
+                        let placeholder2 = $(obj.firstElementChild.lastElementChild.firstElementChild.outerHTML).addClass('draggable').css({bottom: (Math.random() * 30 + 20)})[0];
                         // $(obj).fadeOut(400, function() {
                         //     $(obj).remove();
                         // });
@@ -378,7 +386,7 @@ function addClassesAndListeners() {
                             if (newobj.attr('class').substr(0, 3) === 'imp') {
                                 newobj.addClass('adddrop');
                             }
-                            string += newobj[0].outerHTML;
+                            string += $(newobj[0].outerHTML).css({bottom: (Math.random() * 30 + 20)})[0].outerHTML;
                         }
                         string += placeholder2.outerHTML + '</div></div>';
                         string += `
