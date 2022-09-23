@@ -377,6 +377,8 @@ p, h1, span, div {
 .coming-soon-card {
   border: none;
   text-align: left !important;
+  margin: 0 !important;
+  width: 150px !important;
 }
 
 .level-text {
